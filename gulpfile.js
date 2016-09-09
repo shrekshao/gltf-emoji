@@ -10,7 +10,7 @@
             '**/*.js', 
             '**/*.html', 
             '!node_modules/**', 
-            '!src/third-party/**',
+            '!src/lib/**',
             '!build/**'
             ];
 
@@ -20,7 +20,7 @@
 
     gulp.task('default', ['jsHint']);
 
-    gulp.task('jsHint', function() {
+    gulp.task('jshint', function() {
         return gulp.src(jsHintFiles)
             .pipe(jshint.extract('auto'))
             .pipe(jshint())
@@ -28,7 +28,7 @@
             .pipe(jshint.reporter('fail'));
     });
 
-    gulp.task('jsHint-watch', function() {
+    gulp.task('jshint-watch', function() {
         gulp.watch(jsHintFiles).on('change', function(event) {
             gulp.src(event.path)
                 .pipe(jshint.extract('auto'))

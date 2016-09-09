@@ -9,7 +9,10 @@
   "author": "shrekshao",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.1"
   }

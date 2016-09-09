@@ -280,7 +280,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         var sceneInfo = {
             name : "Monster", url : glTFURL,
             cameraPos: new THREE.Vector3(30, 10, 70),
-            objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
+            //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
             objectPosition: new THREE.Vector3(2, 6, 0),
             objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
             animationTime: 3,

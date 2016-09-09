@@ -8,7 +8,6 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     var canvas;
     var width;
     var height;
-
     
     // renderer related
     var orbitControls = null;
@@ -43,10 +42,11 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         defaultCamera = new THREE.PerspectiveCamera( 45, width / height, 1, 20000 );
 
 
-        var bodyGeom = new THREE.BoxGeometry(15,15,15);
-        var bodyMat = new THREE.MeshPhongMaterial({color:0xf25346, shading:THREE.FlatShading});
-        var body = new THREE.Mesh(bodyGeom, bodyMat);
-        scene.add(body);
+        // // test
+        // var bodyGeom = new THREE.BoxGeometry(15,15,15);
+        // var bodyMat = new THREE.MeshPhongMaterial({color:0xf25346, shading:THREE.FlatShading});
+        // var body = new THREE.Mesh(bodyGeom, bodyMat);
+        // scene.add(body);
 
 
         //defaultCamera.up = new THREE.Vector3( 0, 1, 0 );
@@ -223,6 +223,11 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             scene.add( object );
             //onWindowResize();
 
+            
+            // test text3D
+            var text3D = R.createText3D("Fuck you!");
+            scene.add(text3D);
+
         });
 
         orbitControls = new THREE.OrbitControls(defaultCamera, renderer.domElement);
@@ -267,49 +272,22 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         console.log("glTF emoji entry");
         //console.log(canvas);
 
+        // setup canvas
         canvas = c;
         width = canvas.width;
         height = canvas.height;
 
-        // scene: test sceneInfo
-        var sceneList = [
-            {
-                name : "Monster", url : "/glTFs/monster/%s/monster.gltf",
-                cameraPos: new THREE.Vector3(30, 10, 70),
-                objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
-                objectPosition: new THREE.Vector3(2, 6, 0),
-                objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
-                animationTime: 3,
-                addLights:true,
-                shadows:true,
-                addGround:true
-            },
-            {
-                name : "Duck", url : "./models/gltf/duck/%s/duck.gltf",
-                cameraPos: new THREE.Vector3(0, 3, 5),
-                addLights:true,
-                addGround:true,
-                shadows:true
-            },
-            {
-                name : "Cesium Man", url : "./models/gltf/CesiumMan/%s/Cesium_Man.gltf",
-                    cameraPos: new THREE.Vector3(0, 3, 10),
-                    objectRotation: new THREE.Euler(0, 0, 0),
-                    addLights:true,
-                    addGround:true,
-                    shadows:true
-            },
-            {
-                name : "Cesium Milk Truck",
-                url : "./models/gltf/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
-                cameraPos: new THREE.Vector3(0, 3, 10),
-                addLights:true,
-                addGround:true,
-                shadows:true
-            },
-
-        ];
-        var sceneInfo = sceneList[0];
+        var sceneInfo = {
+            name : "Monster", url : glTFURL,
+            cameraPos: new THREE.Vector3(30, 10, 70),
+            objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
+            objectPosition: new THREE.Vector3(2, 6, 0),
+            objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+            animationTime: 3,
+            addLights:true,
+            shadows:true,
+            addGround:true
+        };
 
 
         initScene(sceneInfo);

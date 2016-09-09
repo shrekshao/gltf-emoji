@@ -21,6 +21,7 @@
     
     <!--<script src="js/ui.js"></script>-->
 
+    <script src="/src/renderer/text3D.js"></script>
     <script src="/src/renderer/glTFEmojiRenderer.js"></script>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
@@ -112,7 +113,7 @@
     <script>
         //var canvas = $('#canvas').element;
         var canvas = document.getElementById("canvas");
-        glTFEmojiRenderer.createEmoji(canvas);
+        glTFEmojiRenderer.createEmoji(canvas, "/glTFs/monster/%s/monster.gltf");
     </script>
 
 </body>

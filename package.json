@@ -1,0 +1,16 @@
+{
+  "name": "gltf-emoji",
+  "version": "0.0.1",
+  "description": "gltf emoji renderer plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shrekshao",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-jshint": "^2.0.1",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1"
+  }
+}

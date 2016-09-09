@@ -18,7 +18,7 @@
     //   // place code for your default task here
     // });
 
-    gulp.task('default', ['jsHint']);
+    gulp.task('default', ['jshint']);
 
     gulp.task('jshint', function() {
         return gulp.src(jsHintFiles)

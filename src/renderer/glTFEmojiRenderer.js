@@ -6,5 +6,5 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
     R.createEmoji = function(canvas) {
 
-    }
+    };
 })();

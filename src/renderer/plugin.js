@@ -4,19 +4,22 @@ function myOnLoad() {
 		{
 			editor.addCommand( 'popUpDialog', {
 				exec : function( editor ){    
-					 $("#myModal").modal() 
-				 	var canvas1 = document.getElementById("canvas1");
-					var meme = new glTFEmojiRenderer.Meme(canvas1, "/glTFs/CesiumMan.gltf");
-					meme.createEmoji();
+					$("#myModal").modal() 
+					if(!canvasInit){
+						var canvas1 = document.getElementById("canvas1");
+						var meme = new glTFEmojiRenderer.Meme(canvas1, "/glTFs/CesiumMan.gltf");
+						meme.createEmoji();
 
-					var canvas2 = document.getElementById("canvas2");
-					var meme2 = new glTFEmojiRenderer.Meme(canvas2, "/glTFs/CesiumMilkTruck.gltf");
-					meme2.createEmoji();
+						var canvas2 = document.getElementById("canvas2");
+						var meme2 = new glTFEmojiRenderer.Meme(canvas2, "/glTFs/CesiumMilkTruck.gltf");
+						meme2.createEmoji();
 
-					var canvas3 = document.getElementById("canvas3");
-					var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
-					meme3.createEmoji();
+						var canvas3 = document.getElementById("canvas3");
+						var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
+						meme3.createEmoji();
 
+						canvasInit = true;
+					}		 	
 				}
 			});
 			editor.ui.addButton( 'btnInsert',{
@@ -49,6 +52,8 @@ function myOnLoad() {
 	// meme3.createEmoji();
 }
 
+
+
 function okClick(){
 	canvasIds = [];
 	var conte
@@ -68,6 +73,7 @@ function okClick(){
 	// alert(document.getElementById('cb1').checked);
 }
 
+var canvasInit = false;
 var canvasIds = [];
 var displayDivIdsNum = 0;
 var displayCanvasIdsNum = 0;
@@ -92,9 +98,11 @@ function displayAll(){
 		displayCanvasCanvasMap[displayCanvasId] = canvasIds[cid];
 		//remove dummy
 		var subStr = '[' + canvasIds[cid] + ']';
-		content = content.replace(subStr, "");
-		content += '<canvas id="' + displayCanvasId + '" class="canvases" width="180px"></canvas>';
-		curDispCanvasIds.push(displayCanvasId);
+		if(content.includes(subStr)){
+			content = content.replace(subStr, "");
+			content += '<canvas id="' + displayCanvasId + '" class="canvases" width="180px"></canvas>';
+			curDispCanvasIds.push(displayCanvasId);
+		}		
 	}
 	var newDiv = document.createElement("div");
 	var newId = "displayDiv"+displayDivIdsNum++;

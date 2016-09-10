@@ -21,8 +21,10 @@
 
     <!--<script src="js/ui.js"></script>-->
 
-    <script src="/src/renderer/text3D.js"></script>
-    <script src="/src/renderer/glTFEmojiRenderer.js"></script>
+    <!--<script src="/src/renderer/text3D.js"></script>
+    <script src="/src/renderer/glTFEmojiRenderer.js"></script>-->
+    <!--<script src="/build/glTFMeme.js"></script>-->
+    <script src="/build/glTFMeme.min.js"></script>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 
@@ -111,20 +113,76 @@
 
 
     <script>
-        //var canvas = $('#canvas').element;
+
+        var memeSet = {
+            cesiumManContour: {
+                url: "/glTFs/CesiumMan-Contour/%s/Cesium_Man.gltf",
+                text: "CesiumMan-Contour",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 10),
+                        objectScale: new THREE.Vector3(3, 3, 3),
+                        objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1), 
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        color: 0xaaaaaa,
+
+                        animation: "spin"
+                    }
+                }
+                
+            }
+            ,
+            jackieChan: {
+                url: "/glTFs/JackieChan/JackieChan.gltf",
+                text: "DA FUQ?",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 15),
+                        //objectScale: new THREE.Vector3(3, 3, 3),
+                        //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1), 
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        color: 0xaaaaaa,
+
+                        animation: "spin"
+                    }
+                }
+                
+            }
+        };
+
+        function createMeme(canvas, cfg) {
+            return new glTFEmojiRenderer.Meme(canvas, cfg.url, cfg.text, cfg.params); 
+        }
+
+        
         var canvas = document.getElementById("canvas");
         //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/monster/%s/monster.gltf");
         
-        var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan.gltf");
-        meme.createEmoji();
+        //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan.gltf");
+        //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan-Contour/%s/Cesium_Man.gltf");
+        //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf");
+        //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/cube.gltf", "HaHaHa Joint working!");
+        //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/cube2.gltf");
+        
+        //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/Cube2ColladaTest/%s/cube2.gltf");
+        
 
-        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/CesiumMan.gltf");
-        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/CesiumMilkTruck.gltf");
-        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf");
-        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/cube.gltf");
-
-        // var canvas2 = document.getElementById("canvas2");
-        // glTFEmojiRenderer.createEmoji(canvas2, "/glTFs/CesiumMilkTruck.gltf");
+        //var meme = createMeme(canvas, memeSet['cesiumManContour']);
+        var meme = createMeme(canvas, memeSet['jackieChan']);
     </script>
 
 </body>

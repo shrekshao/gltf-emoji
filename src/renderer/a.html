@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>asdf</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <script src="/src/lib/three.js"></script>
+
+    <script src="/src/lib/controls/OrbitControls.js"></script>
+
+    <script src="/src/lib/loader/glTF-parser.js"></script>
+    <script src="/src/lib/loader/glTFLoader.js"></script>
+    <script src="/src/lib/loader/glTFLoaderUtils.js"></script>
+    <script src="/src/lib/loader/glTFAnimation.js"></script>
+    <script src="/src/lib/loader/glTFShaders.js"></script>
+    <script src="/src/lib/loader/gltfUtilities.js"></script>
+    
+    <script src="/src/renderer/text3D.js"></script>
+    <script src="/src/renderer/glTFEmojiRenderer.js"></script>
+
+</head>
+<body>
+	<form method="post">
+		<textarea id="editor1" name="editor1">666666</textarea>
+		<script type="text/javascript" src="ckeditor.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+
+		<p>
+			<input type="submit">
+		</p>
+	</form>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Modal Header</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="row">
+				<div class="col-md-3" id="div1">
+
+				    <canvas id="canvas" width="150px" height="150px"></canvas>
+				    <a href="#" class="thumbnail" width="150px">
+      					<p>Cesium Man</p>
+      				</a>
+				</div>
+				<div class="col-md-3" id="div2">
+				    <!-- <canvas id="canvas2" width="150px" height="150px"></canvas> -->
+				</div>
+				<div class="col-md-3" id="div3">
+				    <!-- <canvas id="canvas3" width="150px" height="150px"></canvas> -->
+				</div>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+	<script type="text/javascript" src="plugin.js"></script>
+</body>
+</html>

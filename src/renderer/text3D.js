@@ -38,16 +38,18 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
     loadFont("optimer", "bold");
 
-    var material = new THREE.MultiMaterial( [
-        new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } ), // front
-        new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.SmoothShading } ) // side
-    ] );
+    
 
     /**
      * @param {Object} params
      * @param {} params.font
      */
     R.createText3D = function (text, params) {
+
+        var color = params.color !== undefined ? params.color : 0xffffff;
+
+
+
         var textGeo = new THREE.TextGeometry( text, {
 
             font: font,
@@ -67,6 +69,12 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
         textGeo.computeBoundingBox();
         textGeo.computeVertexNormals();
+
+
+        var material = new THREE.MultiMaterial( [
+            new THREE.MeshPhongMaterial( { color: color, shading: THREE.FlatShading } ), // front
+            new THREE.MeshPhongMaterial( { color: color, shading: THREE.SmoothShading } ) // side
+        ] );
 
         // "fix" side normals by removing z-component of normals for side faces
         // (this doesn't work well for beveled geometry as then we lose nice curvature around z-axis)

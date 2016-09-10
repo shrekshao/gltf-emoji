@@ -7,8 +7,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     /**
      * 
      */
-    R.Meme = function (c, glTFURL, text, params) {
-        params = params || {};
+    R.Meme = function (c, glTFURL, t, params) {
+        var p = params || {};
 
         // setup canvas
         var canvas = c;
@@ -17,6 +17,9 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
         // gltf url
         var url = glTFURL;
+
+        // 3D text
+        var text = t || "DA FUQ?";
         
         // renderer related
         var orbitControls = null;
@@ -228,8 +231,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 
                 // test text3D
                 
-                if ( textInfo ) {
-                    var text3D = R.createText3D(textInfo.text, textInfo);
+                if ( text ) {
+                    var text3D = R.createText3D(text, textInfo);
                     
                     if (textInfo.position) {
                         //text3D.position.set(0, 0, 50);
@@ -285,7 +288,10 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
         console.log("glTF meme start render");
 
-        var sceneInfo = params.sceneInfo || {
+
+
+
+        var sceneInfo = p.sceneInfo || {
             //name : "Monster", 
             //url : url,
             //cameraPos: new THREE.Vector3(30, 10, 70),
@@ -300,8 +306,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             ,addGround:true
         };
 
-        var textInfo = params.textInfo || {
-            text: text || "DA FUQ?",
+        var textInfo = p.textInfo || {
+            //text: text || "DA FUQ?",
             position: new THREE.Vector3(0, 0, 1), 
             scale: new THREE.Vector3(0.01, 0.01, 0.01), 
             color: 0xffffff

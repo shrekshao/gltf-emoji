@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>glTF Emoji Test Page</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico">
+
+    <!--<script src="/src/lib/jquery-2.1.4.min.js"></script>-->
+    <!--<script src="/src/lib/es6-promise.min.js"></script>-->
+
+    <script src="/src/lib/three.js"></script>
+
+    <script src="/src/lib/controls/OrbitControls.js"></script>
+
+    <script src="/src/lib/loader/glTF-parser.js"></script>
+    <script src="/src/lib/loader/glTFLoader.js"></script>
+    <script src="/src/lib/loader/glTFLoaderUtils.js"></script>
+    <script src="/src/lib/loader/glTFAnimation.js"></script>
+    <script src="/src/lib/loader/glTFShaders.js"></script>
+    <script src="/src/lib/loader/gltfUtilities.js"></script>
+    
+    <!--<script src="js/ui.js"></script>-->
+
+    <script src="/src/renderer/text3D.js"></script>
+    <script src="/src/renderer/glTFEmojiRenderer.js"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+
+    <style>
+        html, body {
+            user-select: none;
+        -ms-user-select: none;
+       -moz-user-select: none;
+    -webkit-user-select: none;
+            margin: 0px;
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #333333;
+        }
+        #debugmodewarning {
+            text-align: center;
+            font-family: sans-serif;
+            color: #ffff00;
+            position: fixed;
+            bottom: 0;
+            left: 0px;
+            height: 2em;
+            width: 100%;
+            display: none;
+        }
+        #alertcontainer {
+            font-family: sans-serif;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: none;
+        }
+        #alertbox {
+            background-color: black;
+            color: white;
+            margin: auto auto;
+            padding: 1em;
+            border-radius: 1em;
+            border: 2px solid white;
+            position: relative;
+            top: 200px;
+            width: 750px;
+        }
+        #dlbutton {
+            float: right;
+            width: 6em;
+            height: 2em;
+        }
+        #dlbutton button {
+            width: 100%;
+            height: 100%;
+        }
+        #msgbox {
+            font-family: sans-serif;
+            background-color: black;
+            color: white;
+            height: 2em;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800px" height="600px"></canvas>
+    <div id="msgbox"></div>
+    <!--
+    <div id="debugmodewarning">
+        <strong style="font-size: 150%">DEBUG MODE!</strong>
+        (Disable before measuring performance.)
+        <div id="dlbutton">
+            <button type="button" action="" disabled onclick="downloadCanvas();">Screenshot</button>
+        </div>
+    </div>
+    <div id="alertcontainer">
+        <div id="alertbox"><pre id="alerttext"></pre></div>
+    </div>
+    -->
+
+
+    <script>
+        //var canvas = $('#canvas').element;
+        var canvas = document.getElementById("canvas");
+        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/monster/%s/monster.gltf");
+        glTFEmojiRenderer.createEmoji(canvas, "/glTFs/CesiumMan.gltf");
+        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/CesiumMilkTruck.gltf");
+        //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf");
+    </script>
+
+</body>
+</html>

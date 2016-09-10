@@ -20,6 +20,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
         // 3D text
         var text = t || "DA FUQ?";
+        var text3D;
         
         // renderer related
         var orbitControls = null;
@@ -94,7 +95,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             // RENDERER
 
             renderer = new THREE.WebGLRenderer({antialias:true, canvas: canvas});
-            renderer.setClearColor( 0x000000 );
+            renderer.setClearColor( sceneInfo.clearColor || 0x000000 );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );
 
@@ -232,7 +233,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 // test text3D
                 
                 if ( text ) {
-                    var text3D = R.createText3D(text, textInfo);
+                    text3D = R.createText3D(text, textInfo);
                     
                     if (textInfo.position) {
                         //text3D.position.set(0, 0, 50);
@@ -246,6 +247,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                     scene.add(text3D);
                 }
                 
+                animate();
 
             });
 
@@ -278,7 +280,18 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             if (cameraIndex == 0) {
                 orbitControls.update();
             }
+
+            animateText3D();
+
             render();
+        }
+
+        var frame = 0;
+        function animateText3D() {
+            //text3D.rotation.y += 0.005;
+            frame += 1;
+            text3D.rotation.y = 0.2 * Math.sin(0.05 * frame);
+            text3D.rotation.x = 0.4 * Math.sin(0.03 * frame);
         }
 
         function render() {
@@ -295,6 +308,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             //name : "Monster", 
             //url : url,
             //cameraPos: new THREE.Vector3(30, 10, 70),
+            clearColor: 0xffffff,
             cameraPos: new THREE.Vector3(0, 3, 10),
             //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
             //objectScale: new THREE.Vector3(100, 100, 100),
@@ -303,20 +317,21 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             //animationTime: 3,
             addLights:true,
             shadows:true
-            ,addGround:true
+            //,addGround:true
         };
 
         var textInfo = p.textInfo || {
             //text: text || "DA FUQ?",
             position: new THREE.Vector3(0, 0, 1), 
             scale: new THREE.Vector3(0.01, 0.01, 0.01), 
-            color: 0xffffff
+            //color: 0xffffff
+            color: 0xcccccc
             //color: 0xff6666
         };
 
 
         initScene(sceneInfo, textInfo);
-        animate();
+        //animate();
 
 
 

@@ -405,38 +405,63 @@ THREE.glTFLoader.prototype.load = function( url, callback ) {
 		var geom = ctx.geometry;
 		var attribute = ctx.attribute;
 		var semantic = ctx.semantic;
-		var floatArray;
+		var typedArray;
 		var i, l;
 		var nComponents;
 		//FIXME: Float32 is assumed here, but should be checked.
+		var TypedArray;
+		switch (attribute.componentType) {
+			case 5120: // BYTE
+				TypedArray = Int8Array;
+				break;
+			case 5121: // UNSIGNED_BYTE
+				TypedArray = Uint8Array;
+				break;
+			case 5122: // SHORT
+				TypedArray = Int16Array;
+				break; 
+            case 5123: // UNSIGNED_SHORT
+				TypedArray = Uint16Array;
+				break;
+            case 5124: // INT
+				TypedArray = Int32Array;
+				break;
+            case 5125: // UNSIGNED_INT 
+				TypedArray = Uint32Array;
+				break;
+            case 5126:
+				TypedArray = Float32Array; 
+				break;
+		}
 
 		if (semantic == "POSITION") {
 			// TODO: Should be easy to take strides into account here
-			floatArray = new Float32Array(glResource, 0, attribute.count * componentsPerElementForGLType(attribute.type));
-			geom.geometry.addAttribute( 'position', new THREE.BufferAttribute( floatArray, 3 ) );
+			typedArray = new TypedArray(glResource, 0, attribute.count * componentsPerElementForGLType(attribute.type));
+			geom.geometry.addAttribute( 'position', new THREE.BufferAttribute( typedArray, 3 ) );
 		} else if (semantic == "NORMAL") {
 			nComponents = componentsPerElementForGLType(attribute.type);
-			floatArray = new Float32Array(glResource, 0, attribute.count * nComponents);
-			geom.geometry.addAttribute( 'normal', new THREE.BufferAttribute( floatArray, 3 ) );
+			typedArray = new TypedArray(glResource, 0, attribute.count * nComponents);
+			geom.geometry.addAttribute( 'normal', new THREE.BufferAttribute( typedArray, 3 ) );
 		} else if ((semantic == "TEXCOORD_0") || (semantic == "TEXCOORD" )) {
 
 			nComponents = componentsPerElementForGLType(attribute.type);
-			floatArray = new Float32Array(glResource, 0, attribute.count * nComponents);
+			typedArray = new TypedArray(glResource, 0, attribute.count * nComponents);
 			// N.B.: flip Y value... should we just set texture.flipY everywhere?
-			for (i = 0; i < floatArray.length / 2; i++) {
-				floatArray[i*2+1] = 1.0 - floatArray[i*2+1];
+			for (i = 0; i < typedArray.length / 2; i++) {
+				typedArray[i*2+1] = 1.0 - typedArray[i*2+1];
 			}
-			geom.geometry.addAttribute( 'uv', new THREE.BufferAttribute( floatArray, nComponents ) );
+			geom.geometry.addAttribute( 'uv', new THREE.BufferAttribute( typedArray, nComponents ) );
 		}
 		else if (semantic == "WEIGHT") {
 			nComponents = componentsPerElementForGLType(attribute.type);
-			floatArray = new Float32Array(glResource, 0, attribute.count * nComponents);
-			geom.geometry.addAttribute( 'skinWeight', new THREE.BufferAttribute( floatArray, nComponents ) );
+			typedArray = new TypedArray(glResource, 0, attribute.count * nComponents);
+			geom.geometry.addAttribute( 'skinWeight', new THREE.BufferAttribute( typedArray, nComponents ) );
 		}
 		else if (semantic == "JOINT") {
 			nComponents = componentsPerElementForGLType(attribute.type);
-			floatArray = new Float32Array(glResource, 0, attribute.count * nComponents);
-			geom.geometry.addAttribute( 'skinIndex', new THREE.BufferAttribute( floatArray, nComponents ) );
+			//typedArray = new Float32Array(glResource, 0, attribute.count * nComponents);
+			typedArray = new TypedArray(glResource, 0, attribute.count * nComponents);
+			geom.geometry.addAttribute( 'skinIndex', new THREE.BufferAttribute( typedArray, nComponents ) );
 		}
 	}
 

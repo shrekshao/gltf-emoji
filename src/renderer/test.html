@@ -99,10 +99,11 @@
     <div>
     <!--<canvas id="canvas" width="800px" height="600px"></canvas>-->
     <canvas id="canvas" width="200px" height="200px"></canvas>
+    <canvas id="canvas2" width="200px" height="200px"></canvas>
     </div>
     
     <div>
-    <canvas id="canvas2" width="200px" height="200px"></canvas>
+    
     </div>
 
     <div id="msgbox"></div>
@@ -216,14 +217,22 @@
 
         //var meme = createMeme(canvas, memeSet['cesiumManContour']);
 
-        var meme = new glTFEmojiRenderer.Meme;
-        var cfg1 = memeSet['jackieChan'];
-        meme.createEmoji(canvas, cfg1.url, cfg1.text, cfg1.params);
+        // var meme = new glTFEmojiRenderer.Meme;
+        // var cfg1 = memeSet['jackieChan'];
+        // meme.createEmoji(canvas, cfg1.url, cfg1.text, cfg1.params);
 
 
         // var meme2 = new glTFEmojiRenderer.Meme;
         // var cfg2 = memeSet['milkTruck'];
         // meme2.createEmoji(canvas2, cfg2.url, cfg2.text, cfg2.params);
+
+        //var cfg1 = memeSet['jackieChan'];
+        var cfg1 = memeSet['milkTruck'];
+        var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params);
+
+        var cfg2 = memeSet['cesiumManContour'];
+        var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params);
+        
     </script>
 
 </body>

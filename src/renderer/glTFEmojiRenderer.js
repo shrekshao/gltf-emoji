@@ -4,25 +4,18 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
     var R = glTFEmojiRenderer;
 
-    /**
-     * 
-     */
-    R.Meme = function (c, glTFURL, t, params) {
-        var p = params || {};
+    R.Meme = function () {        
+        // canvas related
+        var canvas;
+        var width;
+        var height;
 
-        // setup canvas
-        var canvas = c;
-        var width = canvas.width;
-        var height = canvas.height;
-
-        // gltf url
-        var url = glTFURL;
-
-        // 3D text
-        var text = t || "DA FUQ?";
-        var text3D;
+        var text;
+        var url;
         
         // renderer related
+        var text3D;
+
         var orbitControls = null;
         var container;
         var camera;
@@ -38,30 +31,15 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
 
         var useMaterialsExtension = false;
-        //var glTFLoader = new THREE.glTFLoader;
 
-
-        // function onload() {
-        //     //window.addEventListener( 'resize', onWindowResize, false );
-        //     //document.addEventListener( 'keydown', function(e) { onKeyDown(e); }, false );
-
-        //     buildSceneList();
-        //     switchScene(0);
-        //     animate();
-        // }
-
-        // function initScene(sceneInfo, textInfo) {
-        this.initScene = function (sceneInfo, textInfo) {
+        function initScene(sceneInfo, textInfo) {
 
             scene = new THREE.Scene();
 
             defaultCamera = new THREE.PerspectiveCamera( 45, width / height, 1, 20000 );
-
-            //defaultCamera.up = new THREE.Vector3( 0, 1, 0 );
+            
             scene.add( defaultCamera );
             camera = defaultCamera;
-
-            //var sceneInfo = sceneList[index];
 
             var spot1 = null;
 
@@ -228,7 +206,6 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 }
 
                 scene.add( object );
-                //onWindowResize();
 
                 
                 // test text3D
@@ -254,9 +231,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                     
                     scene.add(text3D);
                 }
-                
-                animate();
 
+                animate();
             });
 
             orbitControls = new THREE.OrbitControls(defaultCamera, renderer.domElement);
@@ -292,7 +268,6 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             if (animateText3DHandler) {
                 animateText3DHandler();
             }
-
             render();
         }
 
@@ -311,49 +286,58 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             text3D.rotation.x = 0.1 * Math.sin(0.03 * frame);
         }
 
+
+
         function render() {
             renderer.render( scene, camera );
         }
 
 
-        console.log("glTF meme start render");
 
 
 
+        this.createEmoji = function(c, glTFURL, t, params) {
+            console.log("glTF emoji entry");
+            //console.log(canvas);
+            var p = params || {};
+            text = t || "DA FUQ?";
+            url = glTFURL;
 
-        var sceneInfo = p.sceneInfo || {
-            //name : "Monster", 
-            //url : url,
-            //cameraPos: new THREE.Vector3(30, 10, 70),
-            clearColor: 0xffffff,
-            cameraPos: new THREE.Vector3(0, 3, 10),
-            //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
-            //objectScale: new THREE.Vector3(100, 100, 100),
-            //objectPosition: new THREE.Vector3(2, 6, 0),
-            objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
-            //animationTime: 3,
-            addLights:true,
-            shadows:true
-            //,addGround:true
+            // setup canvas
+            canvas = c;
+            width = canvas.width;
+            height = canvas.height;
+
+            var sceneInfo = p.sceneInfo || {
+                //name : "Monster", 
+                //url : url,
+                //cameraPos: new THREE.Vector3(30, 10, 70),
+                clearColor: 0xffffff,
+                cameraPos: new THREE.Vector3(0, 3, 10),
+                //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
+                //objectScale: new THREE.Vector3(100, 100, 100),
+                //objectPosition: new THREE.Vector3(2, 6, 0),
+                objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+                //animationTime: 3,
+                addLights:true,
+                shadows:true
+                //,addGround:true
+            };
+
+            var textInfo = p.textInfo || {
+                //text: text || "DA FUQ?",
+                position: new THREE.Vector3(0, 0, 1), 
+                scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                //color: 0xffffff
+                color: 0xcccccc
+                //color: 0xff6666
+            };
+
+
+            initScene(sceneInfo, textInfo);
+            //animate();
+
         };
-
-        var textInfo = p.textInfo || {
-            //text: text || "DA FUQ?",
-            position: new THREE.Vector3(0, 0, 1), 
-            scale: new THREE.Vector3(0.01, 0.01, 0.01), 
-            //color: 0xffffff
-            color: 0xcccccc
-            //color: 0xff6666
-        };
-
-
-        //initScene(sceneInfo, textInfo);
-        this.initScene(sceneInfo, textInfo);
-        //animate();
-
-
-
-
     };
 
 

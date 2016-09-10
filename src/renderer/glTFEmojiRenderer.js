@@ -50,7 +50,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         //     animate();
         // }
 
-        function initScene(sceneInfo, textInfo) {
+        // function initScene(sceneInfo, textInfo) {
+        this.initScene = function (sceneInfo, textInfo) {
 
             scene = new THREE.Scene();
 
@@ -346,7 +347,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         };
 
 
-        initScene(sceneInfo, textInfo);
+        //initScene(sceneInfo, textInfo);
+        this.initScene(sceneInfo, textInfo);
         //animate();
 
 

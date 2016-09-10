@@ -138,6 +138,30 @@
                 }
                 
             }
+            ,
+            jackieChan: {
+                url: "/glTFs/JackieChan/JackieChan.gltf",
+                text: "DA FUQ?",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 15),
+                        //objectScale: new THREE.Vector3(3, 3, 3),
+                        //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1), 
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        color: 0xaaaaaa,
+
+                        animation: "spin"
+                    }
+                }
+                
+            }
         };
 
         function createMeme(canvas, cfg) {
@@ -157,7 +181,8 @@
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/Cube2ColladaTest/%s/cube2.gltf");
         
 
-        var meme = createMeme(canvas, memeSet['cesiumManContour']);
+        //var meme = createMeme(canvas, memeSet['cesiumManContour']);
+        var meme = createMeme(canvas, memeSet['jackieChan']);
     </script>
 
 </body>

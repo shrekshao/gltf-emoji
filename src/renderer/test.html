@@ -101,9 +101,9 @@
     <canvas id="canvas" width="200px" height="200px"></canvas>
     <canvas id="canvas2" width="200px" height="200px"></canvas>
     </div>
-    
+
     <div>
-    
+
     </div>
 
     <div id="msgbox"></div>
@@ -138,14 +138,14 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "spin"
                     }
                 }
-                
+
             }
             ,
             jackieChan: {
@@ -162,14 +162,14 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "shake"
                     }
                 }
-                
+
             }
             ,
             milkTruck: {
@@ -186,14 +186,14 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "shake"
                     }
                 }
-                
+
             }
             ,
             duck: {
@@ -210,34 +210,34 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "spin"
                     }
                 }
-                
+
             }
         };
 
         function createMeme(canvas, cfg) {
-            return new glTFEmojiRenderer.Meme(canvas, cfg.url, cfg.text, cfg.params); 
+            return new glTFEmojiRenderer.Meme(canvas, cfg.url, cfg.text, cfg.params);
         }
 
-        
+
         var canvas = document.getElementById("canvas");
         var canvas2 = document.getElementById("canvas2");
         //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/monster/%s/monster.gltf");
-        
+
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan.gltf");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan-Contour/%s/Cesium_Man.gltf");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/cube.gltf", "HaHaHa Joint working!");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/cube2.gltf");
-        
+
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/Cube2ColladaTest/%s/cube2.gltf");
-        
+
 
         //var meme = createMeme(canvas, memeSet['cesiumManContour']);
 
@@ -255,11 +255,12 @@
         var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params);
         //meme1.initScene(cfg1.params.sceneInfo, cfg1.params.textInfo);
 
-        var cfg2 = memeSet['cesiumManContour'];
+        //var cfg2 = memeSet['cesiumManContour'];
+        var cfg2 = memeSet['jackieChan'];
         //var cfg2 = memeSet['duck'];
         var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params);
         //meme2.initScene(cfg2.params.sceneInfo, cfg2.params.textInfo);
-        
+
         function animate() {
             meme1.animate();
             meme2.animate();

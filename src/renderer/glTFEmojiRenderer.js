@@ -4,11 +4,14 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
     var R = glTFEmojiRenderer;
 
-    R.Meme = function () {        
-        // canvas related
-        var canvas;
-        var width;
-        var height;
+    R.Meme = function (_canvas, _url) {        
+        // setup canvas
+        var canvas = _canvas;
+        var width = canvas.width;
+        var height = canvas.height;
+
+        // gltf url
+        var url = _url;
         
         // renderer related
         var orbitControls = null;
@@ -276,17 +279,12 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
 
 
-        this.createEmoji = function(c, glTFURL) {
+        this.createEmoji = function() {
             console.log("glTF emoji entry");
             //console.log(canvas);
 
-            // setup canvas
-            canvas = c;
-            width = canvas.width;
-            height = canvas.height;
-
             var sceneInfo = {
-                name : "Monster", url : glTFURL,
+                name : "Monster", url : url,
                 cameraPos: new THREE.Vector3(30, 10, 70),
                 //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
                 objectScale: new THREE.Vector3(100, 100, 100),
@@ -301,9 +299,6 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
             initScene(sceneInfo);
             animate();
-
-
-
 
         };
     };

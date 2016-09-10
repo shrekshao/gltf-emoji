@@ -5,6 +5,18 @@ function myOnLoad() {
 			editor.addCommand( 'popUpDialog', {
 				exec : function( editor ){    
 					 $("#myModal").modal() 
+				 	var canvas1 = document.getElementById("canvas1");
+					var meme = new glTFEmojiRenderer.Meme(canvas1, "/glTFs/CesiumMan.gltf");
+					meme.createEmoji();
+
+					var canvas2 = document.getElementById("canvas2");
+					var meme2 = new glTFEmojiRenderer.Meme(canvas2, "/glTFs/CesiumMilkTruck.gltf");
+					meme2.createEmoji();
+
+					var canvas3 = document.getElementById("canvas3");
+					var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
+					meme3.createEmoji();
+
 				}
 			});
 			editor.ui.addButton( 'btnInsert',{
@@ -24,17 +36,17 @@ function myOnLoad() {
 		]
 	});
 
-	var canvas1 = document.getElementById("canvas1");
-	var meme = new glTFEmojiRenderer.Meme(canvas1, "/glTFs/CesiumMan.gltf");
-	meme.createEmoji();
+	// var canvas1 = document.getElementById("canvas1");
+	// var meme = new glTFEmojiRenderer.Meme(canvas1, "/glTFs/CesiumMan.gltf");
+	// meme.createEmoji();
 
-	var canvas2 = document.getElementById("canvas2");
-	var meme2 = new glTFEmojiRenderer.Meme(canvas2, "/glTFs/CesiumMilkTruck.gltf");
-	meme2.createEmoji();
+	// var canvas2 = document.getElementById("canvas2");
+	// var meme2 = new glTFEmojiRenderer.Meme(canvas2, "/glTFs/CesiumMilkTruck.gltf");
+	// meme2.createEmoji();
 
-	var canvas3 = document.getElementById("canvas3");
-	var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
-	meme3.createEmoji();
+	// var canvas3 = document.getElementById("canvas3");
+	// var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
+	// meme3.createEmoji();
 }
 
 function okClick(){
@@ -45,6 +57,14 @@ function okClick(){
 			canvasIds.push(checkboxCanvasMap[cb]);
 		}
 	}
+	var canvasString = ""
+	for(var id in canvasIds){
+		canvasString += '[' + canvasIds[id] + ']';
+	}
+	
+
+	window.frames[0].document.body.innerHTML = window.frames[0].document.body.innerHTML + canvasString;
+	// document.getElementById("editor1").innerHTML = document.getElementById("editor1").innerHTML + "hello";
 	// alert(document.getElementById('cb1').checked);
 }
 
@@ -70,6 +90,9 @@ function displayAll(){
 	for(cid in canvasIds){
 		var displayCanvasId = "displayCanvas"+displayCanvasIdsNum++;
 		displayCanvasCanvasMap[displayCanvasId] = canvasIds[cid];
+		//remove dummy
+		var subStr = '[' + canvasIds[cid] + ']';
+		content = content.replace(subStr, "");
 		content += '<canvas id="' + displayCanvasId + '" class="canvases" width="180px"></canvas>';
 		curDispCanvasIds.push(displayCanvasId);
 	}
@@ -85,4 +108,6 @@ function displayAll(){
 		var meme = new glTFEmojiRenderer.Meme(canvas, map[displayCanvasCanvasMap[curDispCanvasIds[cid]]]);
 		meme.createEmoji();
 	}
-}
+	window.frames[0].document.body.innerHTML = "";
+	canvasIds = [];
+}	

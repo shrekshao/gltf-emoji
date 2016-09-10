@@ -7,7 +7,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     /**
      * 
      */
-    R.Meme = function (c, glTFURL, params) {
+    R.Meme = function (c, glTFURL, text, params) {
         params = params || {};
 
         // setup canvas
@@ -301,7 +301,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         };
 
         var textInfo = params.textInfo || {
-            text: "DA FUQ?",
+            text: text || "DA FUQ?",
             position: new THREE.Vector3(0, 0, 1), 
             scale: new THREE.Vector3(0.01, 0.01, 0.01), 
             color: 0xffffff

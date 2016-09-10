@@ -24,14 +24,14 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     //var glTFLoader = new THREE.glTFLoader;
 
 
-    function onload() {
-        window.addEventListener( 'resize', onWindowResize, false );
-        document.addEventListener( 'keydown', function(e) { onKeyDown(e); }, false );
+    // function onload() {
+    //     //window.addEventListener( 'resize', onWindowResize, false );
+    //     //document.addEventListener( 'keydown', function(e) { onKeyDown(e); }, false );
 
-        buildSceneList();
-        switchScene(0);
-        animate();
-    }
+    //     buildSceneList();
+    //     switchScene(0);
+    //     animate();
+    // }
 
     function initScene(sceneInfo) {
 

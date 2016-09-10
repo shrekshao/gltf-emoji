@@ -52,33 +52,40 @@
 		      </div>
 		      <div class="modal-body">
 				<ul class="list-group">
-				  <li class="list-group-item">First item</li>
-				  <li class="list-group-item">Second item</li>
-				</ul>
-		        <div class="row">
-					<div class="col-md-4" id="div1">
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-4" id="div1">
 
-					    <canvas id="canvas1" class="canvases" width="180px"></canvas>
-					    <!-- <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas1')" data-dismiss="modal">Select</button> -->
-					    <div class="checkbox">
-							<label><input type="checkbox" id = "cb1" value="canvas1">Cesium Man</label>
+							    <canvas id="canvas1" class="canvases" width="170px"></canvas>
+							    <!-- <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas1')" data-dismiss="modal">Select</button> -->
+							    <div class="checkbox">
+									<label><input type="checkbox" id = "cb1" value="canvas1">Cesium Man</label>
+								</div>
+							</div>
+							<div class="col-md-4" id="div2">
+							    <canvas id="canvas2" class="canvases" width="170px"></canvas>
+							    <!-- <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas2')"data-dismiss="modal">Select</button> -->
+							    <div class="checkbox">
+									<label><input type="checkbox" id = "cb2" value="canvas2">Cesium Milk Truck</label>
+								</div>
+							</div>
+							<div class="col-md-4" id="div3">
+							    <canvas id="canvas3" class="canvases" width="170px"></canvas>
+							    <!-- <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas3')"data-dismiss="modal">Select</button> -->
+							    <div class="checkbox">
+									<label><input type="checkbox" id = "cb3" value="canvas3">Duck</label>
+								</div>
+							</div>
+				        </div>
+					</li>
+					<li class="list-group-item">
+						<div class="form-group">
+							<label for="words">Input words:</label>
+							<input type="text" class="form-control" id="words">
 						</div>
-					</div>
-					<div class="col-md-4" id="div2">
-					    <canvas id="canvas2" class="canvases" width="180px"></canvas>
-					    <!-- <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas2')"data-dismiss="modal">Select</button> -->
-					    <div class="checkbox">
-							<label><input type="checkbox" id = "cb2" value="canvas2">Cesium Milk Truck</label>
-						</div>
-					</div>
-					<div class="col-md-4" id="div3">
-					    <canvas id="canvas3" class="canvases" width="180px"></canvas>
-					    <!-- <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas3')"data-dismiss="modal">Select</button> -->
-					    <div class="checkbox">
-							<label><input type="checkbox" id = "cb3" value="canvas3">Duck</label>
-						</div>
-					</div>
-		        </div>
+					</li>
+				</ul>
+
 		      </div>
 		      <div class="modal-footer">
 	  	        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="okClick()">OK</button>

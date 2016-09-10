@@ -21,10 +21,10 @@
 
     <!--<script src="js/ui.js"></script>-->
 
-    <!--<script src="/src/renderer/text3D.js"></script>
-    <script src="/src/renderer/glTFEmojiRenderer.js"></script>-->
+    <script src="/src/renderer/text3D.js"></script>
+    <script src="/src/renderer/glTFEmojiRenderer.js"></script>
     <!--<script src="/build/glTFMeme.js"></script>-->
-    <script src="/build/glTFMeme.min.js"></script>
+    <!--<script src="/build/glTFMeme.min.js"></script>-->
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 
@@ -96,7 +96,16 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas" width="800px" height="600px"></canvas>
+    <div>
+    <!--<canvas id="canvas" width="800px" height="600px"></canvas>-->
+    <canvas id="canvas" width="200px" height="200px"></canvas>
+    <canvas id="canvas2" width="200px" height="200px"></canvas>
+    </div>
+    
+    <div>
+    
+    </div>
+
     <div id="msgbox"></div>
     <!--
     <div id="debugmodewarning">
@@ -157,7 +166,31 @@
                         scale: new THREE.Vector3(0.01, 0.01, 0.01), 
                         color: 0xaaaaaa,
 
-                        animation: "spin"
+                        animation: "shake"
+                    }
+                }
+                
+            }
+            ,
+            milkTruck: {
+                url: "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
+                text: "Milk Truck?",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 15),
+                        //objectScale: new THREE.Vector3(3, 3, 3),
+                        //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1), 
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        color: 0xaaaaaa,
+
+                        animation: "shake"
                     }
                 }
                 
@@ -170,6 +203,7 @@
 
         
         var canvas = document.getElementById("canvas");
+        var canvas2 = document.getElementById("canvas2");
         //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/monster/%s/monster.gltf");
         
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan.gltf");
@@ -182,7 +216,23 @@
         
 
         //var meme = createMeme(canvas, memeSet['cesiumManContour']);
-        var meme = createMeme(canvas, memeSet['jackieChan']);
+
+        // var meme = new glTFEmojiRenderer.Meme;
+        // var cfg1 = memeSet['jackieChan'];
+        // meme.createEmoji(canvas, cfg1.url, cfg1.text, cfg1.params);
+
+
+        // var meme2 = new glTFEmojiRenderer.Meme;
+        // var cfg2 = memeSet['milkTruck'];
+        // meme2.createEmoji(canvas2, cfg2.url, cfg2.text, cfg2.params);
+
+        //var cfg1 = memeSet['jackieChan'];
+        var cfg1 = memeSet['milkTruck'];
+        var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params);
+
+        var cfg2 = memeSet['cesiumManContour'];
+        var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params);
+        
     </script>
 
 </body>

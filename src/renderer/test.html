@@ -195,6 +195,30 @@
                 }
                 
             }
+            ,
+            duck: {
+                url: "/glTFs/duck/glTF-MaterialsCommon/duck.gltf",
+                text: "Duck",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 15),
+                        //objectScale: new THREE.Vector3(3, 3, 3),
+                        //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1), 
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        color: 0xaaaaaa,
+
+                        animation: "spin"
+                    }
+                }
+                
+            }
         };
 
         function createMeme(canvas, cfg) {
@@ -229,10 +253,20 @@
         //var cfg1 = memeSet['jackieChan'];
         var cfg1 = memeSet['milkTruck'];
         var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params);
+        //meme1.initScene(cfg1.params.sceneInfo, cfg1.params.textInfo);
 
         var cfg2 = memeSet['cesiumManContour'];
+        //var cfg2 = memeSet['duck'];
         var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params);
+        //meme2.initScene(cfg2.params.sceneInfo, cfg2.params.textInfo);
         
+        function animate() {
+            meme1.animate();
+            meme2.animate();
+
+            requestAnimationFrame( animate );
+        }
+
     </script>
 
 </body>

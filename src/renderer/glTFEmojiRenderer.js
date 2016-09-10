@@ -105,23 +105,24 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     //     }
     // };
     
-    var animate = function() {
+    // var animate = function() {
 
-            THREE.glTFAnimator.update();
-            THREE.glTFShaders.update(self.scene, self.camera);
-            if (self.camera == self.defaultCamera) {
-                self.orbitControls.update();
-            }
+    //         THREE.glTFAnimator.update();
+    //         THREE.glTFShaders.update(self.scene, self.camera);
+            
+    //         if (self.camera == self.defaultCamera) {
+    //             self.orbitControls.update();
+    //         }
 
-            //if (this.text3D && this.animateText3DHandler) {
-            if (self.animateText3DHandler) {
-                self.animateText3DHandler();
-            }
+    //         //if (this.text3D && this.animateText3DHandler) {
+    //         if (self.animateText3DHandler) {
+    //             self.animateText3DHandler();
+    //         }
 
-            self.render();
+    //         self.render();
 
-            requestAnimationFrame( animate );
-    };
+    //         requestAnimationFrame( animate );
+    // };
 
 
 
@@ -139,10 +140,10 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         var scene = this.scene = new THREE.Scene();
 
         var defaultCamera = this.defaultCamera = new THREE.PerspectiveCamera( 45, this.width / this.height, 1, 20000 );
-        
 
-        scene.add( defaultCamera );
-        var camera = this.camera = defaultCamera;
+
+        this.scene.add( this.defaultCamera );
+        var camera = this.camera = this.defaultCamera;
 
         var spot1 = null;
 
@@ -176,7 +177,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
         // RENDERER
 
-        var renderer = this.renderer = new THREE.WebGLRenderer({antialias:true, canvas: canvas});
+        var renderer = this.renderer = new THREE.WebGLRenderer({antialias:true, canvas: this.canvas});
         renderer.setClearColor( sceneInfo.clearColor || 0x000000 );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( this.width, this.height );
@@ -341,6 +342,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 scene.add(text3D);
             }
 
+            //self.animate();
+            //animate();
             //self.animate();
             animate();
         });

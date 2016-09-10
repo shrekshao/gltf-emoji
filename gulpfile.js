@@ -4,6 +4,7 @@
     var jshint = require('gulp-jshint');
     var uglify = require('gulp-uglify');
     var rename = require("gulp-rename");
+    var concat = require('gulp-concat');
     var gulp = require('gulp');
 
     var jsHintFiles = [
@@ -36,6 +37,7 @@
                 .pipe(jshint.reporter('jshint-stylish'));
         });
     });
+    
 
     // gulp.task('compress', function() {
     // return gulp.src('src/minimal-gltf-loader.js')
@@ -43,4 +45,16 @@
     //     .pipe(rename({suffix: '.min'}))
     //     .pipe(gulp.dest('build'));
     // });
+
+    // concat and compress
+    gulp.task('build', function(){
+        return gulp.src(['src/renderer/glTFEmojiRenderer.js', 'src/renderer/text3D.js'])
+            .pipe(concat('glTFMeme.js'))
+            .pipe(gulp.dest('build'))
+            // compress
+            .pipe(uglify())
+            .pipe(rename({suffix: '.min'}))
+            .pipe(gulp.dest('build'));
+    });
+
 })();

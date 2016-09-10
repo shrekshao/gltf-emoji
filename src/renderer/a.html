@@ -21,7 +21,7 @@
     <script src="/src/renderer/glTFEmojiRenderer.js"></script>
 
 </head>
-<body>
+<body onload="myOnLoad()">
 	<form method="post">
 		<textarea id="editor1" name="editor1">666666</textarea>
 		<script type="text/javascript" src="ckeditor.js"></script>
@@ -51,15 +51,13 @@
 				<div class="col-md-3" id="div1">
 
 				    <canvas id="canvas" width="150px" height="150px"></canvas>
-				    <a href="#" class="thumbnail" width="150px">
-      					<p>Cesium Man</p>
-      				</a>
+				     <button type="button" class="btn btn-primary btn-block">Select</button>
 				</div>
 				<div class="col-md-3" id="div2">
-				    <!-- <canvas id="canvas2" width="150px" height="150px"></canvas> -->
+				    <canvas id="canvas2" width="150px" height="150px"></canvas>
 				</div>
 				<div class="col-md-3" id="div3">
-				    <!-- <canvas id="canvas3" width="150px" height="150px"></canvas> -->
+				    <canvas id="canvas3" width="150px" height="150px"></canvas>
 				</div>
 	        </div>
 	      </div>

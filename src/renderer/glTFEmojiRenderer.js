@@ -297,7 +297,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             //animationTime: 3,
             addLights:true,
             shadows:true
-            //addGround:true
+            ,addGround:true
         };
 
         var textInfo = params.textInfo || {

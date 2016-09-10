@@ -1,0 +1,552 @@
+{
+  "accessors": {
+    "accessor_16": {
+      "bufferView": "bufferView_2",
+      "byteOffset": 0,
+      "byteStride": 0,
+      "componentType": 5123,
+      "count": 36,
+      "type": "SCALAR",
+      "min": [
+        0
+      ],
+      "max": [
+        35
+      ]
+    },
+    "accessor_18": {
+      "bufferView": "bufferView_0",
+      "byteOffset": 0,
+      "byteStride": 0,
+      "componentType": 5126,
+      "count": 32,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    "accessor_20": {
+      "bufferView": "bufferView_0",
+      "byteOffset": 384,
+      "byteStride": 0,
+      "componentType": 5126,
+      "count": 32,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    "animAccessor_0": {
+      "bufferView": "bufferView_1",
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 3,
+      "type": "SCALAR",
+      "byteStride": 0,
+      "min": [
+        0.04166660085320473
+      ],
+      "max": [
+        1.2916699647903442
+      ]
+    },
+    "animAccessor_1": {
+      "bufferView": "bufferView_1",
+      "byteOffset": 12,
+      "componentType": 5126,
+      "count": 3,
+      "type": "VEC3",
+      "byteStride": 0,
+      "min": [
+        0,
+        0,
+        0
+      ],
+      "max": [
+        0,
+        0,
+        2.4688498973846436
+      ]
+    },
+    "animAccessor_2": {
+      "bufferView": "bufferView_1",
+      "byteOffset": 48,
+      "componentType": 5126,
+      "count": 3,
+      "type": "VEC4",
+      "byteStride": 0,
+      "min": [
+        0,
+        0,
+        -0.32626238465309143,
+        0.8259181380271912
+      ],
+      "max": [
+        0.06859955936670303,
+        0.45464956760406494,
+        0,
+        1
+      ]
+    },
+    "animAccessor_3": {
+      "bufferView": "bufferView_1",
+      "byteOffset": 96,
+      "componentType": 5126,
+      "count": 3,
+      "type": "VEC3",
+      "byteStride": 0,
+      "min": [
+        1,
+        1,
+        1
+      ],
+      "max": [
+        2.411139965057373,
+        2.411139965057373,
+        2.411139965057373
+      ]
+    }
+  },
+  "animations": {
+    "animation_0": {
+      "channels": [
+        {
+          "sampler": "animation_0_translation_sampler",
+          "target": {
+            "id": "Cube",
+            "path": "translation"
+          }
+        }
+      ],
+      "parameters": {
+        "TIME": "animAccessor_0",
+        "translation": "animAccessor_1"
+      },
+      "samplers": {
+        "animation_0_translation_sampler": {
+          "input": "TIME",
+          "interpolation": "LINEAR",
+          "output": "translation"
+        }
+      }
+    },
+    "animation_1": {
+      "channels": [],
+      "parameters": {
+        "TIME": "animAccessor_0"
+      },
+      "samplers": {}
+    },
+    "animation_2": {
+      "channels": [],
+      "parameters": {
+        "TIME": "animAccessor_0"
+      },
+      "samplers": {}
+    },
+    "animation_3": {
+      "channels": [
+        {
+          "sampler": "animation_3_rotation_sampler",
+          "target": {
+            "id": "Cube",
+            "path": "rotation"
+          }
+        }
+      ],
+      "parameters": {
+        "TIME": "animAccessor_0",
+        "rotation": "animAccessor_2"
+      },
+      "samplers": {
+        "animation_3_rotation_sampler": {
+          "input": "TIME",
+          "interpolation": "LINEAR",
+          "output": "rotation"
+        }
+      }
+    },
+    "animation_4": {
+      "channels": [],
+      "parameters": {
+        "TIME": "animAccessor_0"
+      },
+      "samplers": {}
+    },
+    "animation_5": {
+      "channels": [],
+      "parameters": {
+        "TIME": "animAccessor_0"
+      },
+      "samplers": {}
+    },
+    "animation_6": {
+      "channels": [
+        {
+          "sampler": "animation_6_scale_sampler",
+          "target": {
+            "id": "Cube",
+            "path": "scale"
+          }
+        }
+      ],
+      "parameters": {
+        "TIME": "animAccessor_0",
+        "scale": "animAccessor_3"
+      },
+      "samplers": {
+        "animation_6_scale_sampler": {
+          "input": "TIME",
+          "interpolation": "LINEAR",
+          "output": "scale"
+        }
+      }
+    },
+    "animation_7": {
+      "channels": [],
+      "parameters": {
+        "TIME": "animAccessor_0"
+      },
+      "samplers": {}
+    },
+    "animation_8": {
+      "channels": [],
+      "parameters": {
+        "TIME": "animAccessor_0"
+      },
+      "samplers": {}
+    }
+  },
+  "asset": {
+    "generator": "collada2gltf@",
+    "premultipliedAlpha": true,
+    "profile": {
+      "api": "WebGL",
+      "version": "1.0.2"
+    },
+    "version": "1.0"
+  },
+  "bufferViews": {
+    "bufferView_0": {
+      "buffer": "buffer_0",
+      "byteLength": 768,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    "bufferView_1": {
+      "buffer": "buffer_0",
+      "byteLength": 132,
+      "byteOffset": 768
+    },
+    "bufferView_2": {
+      "buffer": "buffer_0",
+      "byteLength": 72,
+      "byteOffset": 900,
+      "target": 34963
+    }
+  },
+  "buffers": {
+    "buffer_0": {
+      "type": "arraybuffer",
+      "byteLength": 972,
+      "uri": "data:application/octet-stream;base64,AACAPwAAgD8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIC/AACAPwAAgL8AAIC/AACAvwAAgD8AAIA/7/9/PwAAgL8AAIA/AACAPwAAgD8AAIA/AACAvwAAgL8AAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIC/AACAPwAAgD8AAIC/7/9/PwAAgL8AAIA/AACAvwAAgL8AAIC/AACAPwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIC/AACAPwAAgD8AAIC/AACAvwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/7/9/PwAAgL8AAIA/AACAPwAAgL8AAIC/7/9/PwAAgL8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAPwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIA/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAPAIC0AACAPwAAAAAPAIC0AACAPwAAAAAPAIC0AAAAAAAAgL/6//+0AAAAAAAAgL/6//+0AAAAAAAAgL/6//+0AACAvw8AgDQbACC0AACAvw8AgDQbACC0AACAvw8AgDQbACC0AwCQNAAAgD8PAIA0AwCQNAAAgD8PAIA0AwCQNAAAgD8PAIA0AACAP/j/H7Xt/680AACAP/j/H7Xt/680AACAP/j/H7Xt/680+v//tAAAgL8AAAAA+v//tAAAgL8AAAAA+v//tAAAgL8AAAAAAACAvw8AgDTX//+zAACAvw8AgDTX//+zAACAvw8AgDTX//+z7v9fNAAAgD8AAAAA7v9fNAAAgD8AAAAA7v9fNAAAgD8AAAAAmaoqPbCqKj9xVaU/AAAAAAAAAAAAAAAAAAAAAAAAAACjAR5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAP+19jD3Ux+g+3Qunvl9vUz8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/HlAaQB5QGkAeUBpAAACAPwAAgD8AAIA/AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ADgAPABAAEQASABMAFAAVABYAFwAYABkAGgAbABwAHQAeAB8A"
+    }
+  },
+  "cameras": {
+    "Camera-camera": {
+      "name": "Camera",
+      "perspective": {
+        "aspectRatio": 1.7777799367904663,
+        "yfov": 0.48237427870788735,
+        "zfar": 100,
+        "znear": 0.10000000149011612
+      },
+      "type": "perspective"
+    }
+  },
+  "materials": {
+    "Material-effect": {
+      "name": "Material",
+      "technique": "technique0",
+      "values": {
+        "ambient": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "diffuse": [
+          0.6399999856948853,
+          0.6399999856948853,
+          0.6399999856948853,
+          1
+        ],
+        "emission": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shininess": 50,
+        "specular": [
+          0.5,
+          0.5,
+          0.5,
+          1
+        ]
+      }
+    }
+  },
+  "meshes": {
+    "Cube-mesh": {
+      "name": "Cube",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": "accessor_20",
+            "POSITION": "accessor_18"
+          },
+          "indices": "accessor_16",
+          "material": "Material-effect",
+          "mode": 4
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "Camera": {
+      "camera": "Camera-camera",
+      "children": [],
+      "matrix": [
+        0.6858811378479004,
+        0.7276331782341003,
+        -0.010816781781613827,
+        0,
+        -0.31736981868743896,
+        0.31246882677078247,
+        0.8953433036804199,
+        0,
+        0.6548614501953125,
+        -0.6106661558151245,
+        0.44524529576301575,
+        0,
+        7.4811296463012695,
+        -6.5076398849487305,
+        5.3436598777771,
+        1
+      ],
+      "name": "Camera"
+    },
+    "Cube": {
+      "children": [],
+      "meshes": [
+        "Cube-mesh"
+      ],
+      "name": "Cube",
+      "rotation": [
+        0.06859955936670303,
+        0.45464956760406494,
+        -0.32626238465309143,
+        0.8259181380271912
+      ],
+      "scale": [
+        2.411139965057373,
+        2.411139965057373,
+        2.411139965057373
+      ],
+      "translation": [
+        0,
+        0,
+        2.4688498973846436
+      ]
+    },
+    "Lamp": {
+      "children": [],
+      "matrix": [
+        -0.2908594310283661,
+        0.9551727175712585,
+        -0.055189099162817,
+        0,
+        -0.7711024284362793,
+        -0.19987930357456207,
+        0.6045240759849548,
+        0,
+        0.5663937330245972,
+        0.21838797628879547,
+        0.7946727871894836,
+        0,
+        4.076250076293945,
+        1.0054500102996826,
+        5.903859615325928,
+        1
+      ],
+      "name": "Lamp"
+    },
+    "node_3": {
+      "children": [
+        "Cube",
+        "Lamp",
+        "Camera"
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Y_UP_Transform"
+    }
+  },
+  "programs": {
+    "program_0": {
+      "attributes": [
+        "a_normal",
+        "a_position"
+      ],
+      "fragmentShader": "input0FS",
+      "vertexShader": "input0VS"
+    }
+  },
+  "scene": "defaultScene",
+  "scenes": {
+    "defaultScene": {
+      "nodes": [
+        "node_3"
+      ]
+    }
+  },
+  "shaders": {
+    "input0FS": {
+      "type": 35632,
+      "uri": "cube2FS.glsl"
+    },
+    "input0VS": {
+      "type": 35633,
+      "uri": "cube2VS.glsl"
+    }
+  },
+  "skins": {},
+  "techniques": {
+    "technique0": {
+      "attributes": {
+        "a_normal": "normal",
+        "a_position": "position"
+      },
+      "parameters": {
+        "ambient": {
+          "type": 35666
+        },
+        "diffuse": {
+          "type": 35666
+        },
+        "emission": {
+          "type": 35666
+        },
+        "light0Color": {
+          "type": 35665,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        "light0ConstantAttenuation": {
+          "type": 5126,
+          "value": 1
+        },
+        "light0LinearAttenuation": {
+          "type": 5126,
+          "value": 0
+        },
+        "light0QuadraticAttenuation": {
+          "type": 5126,
+          "value": 0.001111089950427413
+        },
+        "light0Transform": {
+          "node": "Lamp",
+          "semantic": "MODELVIEW",
+          "type": 35676
+        },
+        "modelViewMatrix": {
+          "semantic": "MODELVIEW",
+          "type": 35676
+        },
+        "normal": {
+          "semantic": "NORMAL",
+          "type": 35665
+        },
+        "normalMatrix": {
+          "semantic": "MODELVIEWINVERSETRANSPOSE",
+          "type": 35675
+        },
+        "position": {
+          "semantic": "POSITION",
+          "type": 35665
+        },
+        "projectionMatrix": {
+          "semantic": "PROJECTION",
+          "type": 35676
+        },
+        "shininess": {
+          "type": 5126
+        },
+        "specular": {
+          "type": 35666
+        }
+      },
+      "program": "program_0",
+      "states": {
+        "enable": [
+          2929,
+          2884
+        ],
+        "disable": []
+      },
+      "uniforms": {
+        "u_ambient": "ambient",
+        "u_diffuse": "diffuse",
+        "u_emission": "emission",
+        "u_light0Color": "light0Color",
+        "u_light0ConstantAttenuation": "light0ConstantAttenuation",
+        "u_light0LinearAttenuation": "light0LinearAttenuation",
+        "u_light0QuadraticAttenuation": "light0QuadraticAttenuation",
+        "u_light0Transform": "light0Transform",
+        "u_modelViewMatrix": "modelViewMatrix",
+        "u_normalMatrix": "normalMatrix",
+        "u_projectionMatrix": "projectionMatrix",
+        "u_shininess": "shininess",
+        "u_specular": "specular"
+      }
+    }
+  },
+  "extensionsUsed": [],
+  "images": {},
+  "samplers": {},
+  "textures": {}
+}

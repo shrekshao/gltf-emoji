@@ -11,7 +11,11 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     
     // renderer related
     var orbitControls = null;
-    var container, camera, scene, renderer, loader;
+    var container;
+    var camera;
+    var scene;
+    var renderer;
+    var loader;
 
     var cameraIndex = 0;
     var cameras = [];

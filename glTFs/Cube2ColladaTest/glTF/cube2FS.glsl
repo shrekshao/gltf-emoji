@@ -34,7 +34,8 @@ vec3 viewDir = -normalize(v_position);
 float phongTerm = max(0.0, dot(reflect(-l,normal), viewDir));
 specularIntensity = max(0., pow(phongTerm , u_shininess)) * attenuation;
 specularLight += u_light0Color * specularIntensity;
-diffuseLight += u_light0Color * max(dot(normal,l), 0.) * attenuation;
+//diffuseLight += u_light0Color * max(dot(normal,l), 0.) * attenuation;
+diffuseLight += u_light0Color * max(dot(normal,vec3(0.,0.,1.)), 0.) * attenuation;
 }
 specular.xyz *= specularLight;
 color.xyz += specular.xyz;

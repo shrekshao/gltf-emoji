@@ -107,6 +107,13 @@ THREE.glTFShader.prototype.update = function(scene, camera) {
 	            	m4.multiplyMatrices(camera.matrixWorldInverse, 
 	            		semantic.sourceObject.matrixWorld);
 	                break;
+				
+				case "MODELVIEWINVERSE" :
+	            	var m4 = semantic.uniform.value;
+	            	m4.multiplyMatrices(camera.matrixWorldInverse, 
+	            		semantic.sourceObject.matrixWorld);
+					m4.getInverse(m4);
+	                break;
 
 	            case "MODELVIEWINVERSETRANSPOSE" :
 	            	var m3 = semantic.uniform.value;

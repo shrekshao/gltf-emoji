@@ -1,5 +1,6 @@
 precision highp float;
 varying vec3 v_normal;
+varying vec3 v_position;    //view space pos, for contour
 uniform vec4 u_ambient;
 varying vec2 v_texcoord0;
 uniform sampler2D u_diffuse;
@@ -21,7 +22,16 @@ void main(void) {
     color.xyz += diffuse.xyz;
     color.xyz += emission.xyz;
     color = vec4(color.rgb * diffuse.a, diffuse.a);
+    
+    // contour part
+    float edgeDetector = dot(-v_position, v_normal) > 0.3 ? 1.0 : 0.0;
+    
+    
     //gl_FragColor = color;
-    gl_FragColor = u_ambient;
+    //gl_FragColor = vec4(color.rgb * edgeDetector, 1.0);
+    gl_FragColor = edgeDetector > 0.5 ? color : vec4(1.0, 0.0, 0.0, 1.0);
+
+    //gl_FragColor = vec4(edgeDetector, edgeDetector, edgeDetector, 1.0);
+    //gl_FragColor = u_ambient;
     //gl_FragColor = vec4(1.0, 0.5, 0.5, 1.0);
 }

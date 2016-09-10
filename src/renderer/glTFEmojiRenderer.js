@@ -214,8 +214,9 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                     animation.loop = true;
                     // There's .3333 seconds junk at the tail of the Monster animation that
                     // keeps it from looping cleanly. Clip it at 3 seconds
-                    if (sceneInfo.animationTime)
+                    if (sceneInfo.animationTime) {
                         animation.duration = sceneInfo.animationTime;
+                    }
                     animation.play();
                 }
             }
@@ -225,7 +226,8 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
             
             // test text3D
-            var text3D = R.createText3D("Fuck you!");
+            var text3D = R.createText3D("DA FUQ?");
+            text3D.position.set(0, 0, 50);
             scene.add(text3D);
 
         });
@@ -281,9 +283,10 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             name : "Monster", url : glTFURL,
             cameraPos: new THREE.Vector3(30, 10, 70),
             //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
+            objectScale: new THREE.Vector3(100, 100, 100),
             objectPosition: new THREE.Vector3(2, 6, 0),
             objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
-            animationTime: 3,
+            //animationTime: 3,
             addLights:true,
             shadows:true,
             addGround:true

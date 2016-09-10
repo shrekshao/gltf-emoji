@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>asdf</title>
+	<title>3D Emoji Demo</title>
 
     <link rel="icon" href="favicon.ico">
 
@@ -19,22 +19,53 @@
     
     <script src="/src/renderer/text3D.js"></script>
     <script src="/src/renderer/glTFEmojiRenderer.js"></script>
+    
 
 </head>
 <body onload="myOnLoad()">
-	<form method="post">
-		<textarea id="editor1" name="editor1">666666</textarea>
-		<script type="text/javascript" src="ckeditor.js"></script>
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		
 
-		<p>
-			<input type="submit">
-		</p>
-	</form>
+	<div id="editor1" name="editor1">666666
+	</div>
+	<!-- <div id="editor2">777777</div> -->
+
+	<script type="text/javascript" src="ckeditor.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+
+	<button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="displayAll()">Submit</button>
+	<script type="text/javascript">
+
+	var canvasId = "";
+	//mapping gltf files to canvas
+	var map = [];
+	map["canvas1"] = "/glTFs/CesiumMan.gltf";
+	map["canvas2"] = "/glTFs/CesiumMilkTruck.gltf";
+	map["canvas3"] = "/glTFs/duck/glTF-MaterialsCommon/duck.gltf";
+	function selectCanvas(id){
+		canvasId = id;
+
+	}
+	function displayAll(){
+		// var content = "Hello";
+		var canvasEle = "";
+		if(canvasId != ""){
+			canvasEle = '<canvas id="' + canvasId + '" class="canvases" width="180px"></canvas>';
+		}
+		var content = document.getElementById("editor1").innerHTML;
+		document.getElementById("display").innerHTML = content + canvasEle;
+		// document.getElementById("display").innerHTML = content + '<canvas id="canvas" class="canvases" width="180px"></canvas>';
+		var canvas = document.getElementById(canvasId);
+		var meme = new glTFEmojiRenderer.Meme(canvas, map[canvasId]);
+		meme.createEmoji();
+	}
+    </script>
+
+	<div id="display" style="width:auto;height:auto">
+		
+	</div>
 
 	<!-- Modal -->
 	<div id="myModal" class="modal fade" role="dialog">
@@ -50,16 +81,16 @@
 	        <div class="row">
 				<div class="col-md-4" id="div1">
 
-				    <canvas id="canvas" class="canvases" width="180px"></canvas>
-				    <button type="button" class="btn btn-primary btn-block" style="width:180px;">Select</button>
+				    <canvas id="canvas1" class="canvases" width="180px"></canvas>
+				    <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas1')" data-dismiss="modal">Select</button>
 				</div>
 				<div class="col-md-4" id="div2">
 				    <canvas id="canvas2" class="canvases" width="180px"></canvas>
-				    <button type="button" class="btn btn-primary btn-block" style="width:180px;">Select</button>
+				    <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas2')"data-dismiss="modal">Select</button>
 				</div>
 				<div class="col-md-4" id="div3">
 				    <canvas id="canvas3" class="canvases" width="180px"></canvas>
-				    <button type="button" class="btn btn-primary btn-block" style="width:180px;">Select</button>
+				    <button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="selectCanvas('canvas3')"data-dismiss="modal">Select</button>
 				</div>
 	        </div>
 	      </div>

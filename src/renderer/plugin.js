@@ -19,12 +19,12 @@ function myOnLoad() {
 		extraPlugins : 'emoji',
 		toolbar :
 		[
-			['Source', '-', 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
+			['Source', '-', 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Smiley'],
 			['About','-','btnInsert']
 		]
 	});
 
-	var canvas = document.getElementById("canvas");
+	var canvas = document.getElementById("canvas1");
 	var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan.gltf");
 	meme.createEmoji();
 
@@ -33,6 +33,6 @@ function myOnLoad() {
 	meme2.createEmoji();
 
 	var canvas3 = document.getElementById("canvas3");
-	var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF/duck.gltf");
+	var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
 	meme3.createEmoji();
 }

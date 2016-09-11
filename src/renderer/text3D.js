@@ -25,7 +25,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
     function loadFont(fontName, fontWeight) {
 
         var loader = new THREE.FontLoader();
-        loader.load( '/fonts/' + fontName + '_' + fontWeight + '.typeface.json', function ( response ) {
+        loader.load( '../../fonts/' + fontName + '_' + fontWeight + '.typeface.json', function ( response ) {
 
             font = response;
 

@@ -1,7 +1,7 @@
 var memeSet = {
     cesiumManContour: {
         name: "Cesium Man",
-        url: "/glTFs/CesiumMan-Contour/%s/Cesium_Man.gltf",
+        url: "../../glTFs/CesiumMan-Contour/%s/Cesium_Man.gltf",
         text: "CesiumMan-Contour",
         params: {
             sceneInfo: {
@@ -26,7 +26,7 @@ var memeSet = {
     ,
     jackieChan: {
         name: "Jackie Chan",
-        url: "/glTFs/JackieChan/JackieChan.gltf",
+        url: "../../glTFs/JackieChan/JackieChan.gltf",
         //text: "DA FUQ?",
         text: "Duang~",
         params: {
@@ -53,7 +53,7 @@ var memeSet = {
     ,
     jackieChan2: {
         name: "Jackie Chan Crazy",
-        url: "/glTFs/JackieChan2/JackieChan2.gltf",
+        url: "../../glTFs/JackieChan2/JackieChan2.gltf",
         //text: "DA FUQ?",
         text: "Duang!!",
         params: {
@@ -80,7 +80,7 @@ var memeSet = {
     ,
     milkTruck: {
         name: "Cesium Milk Truck",
-        url: "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
+        url: "../../glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
         text: "Milk Truck?",
         params: {
             sceneInfo: {
@@ -106,7 +106,7 @@ var memeSet = {
     ,
     duck: {
         name: "Duck",
-        url: "/glTFs/duck/glTF-MaterialsCommon/duck.gltf",
+        url: "../../glTFs/duck/glTF-MaterialsCommon/duck.gltf",
         text: "Duck",
         params: {
             sceneInfo: {

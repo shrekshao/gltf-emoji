@@ -27,10 +27,12 @@ var displayDivIdsNum = 0;
 var displayCanvasIdsNum = 0;
 var displayCanvasCanvasMap = {};
 //mapping gltf files to canvas
-var map = [];
-map["canvas1"] = "/glTFs/CesiumMan.gltf";
-map["canvas2"] = "/glTFs/CesiumMilkTruck.gltf";
-map["canvas3"] = "/glTFs/duck/glTF-MaterialsCommon/duck.gltf";
+var map = {
+	canvas1: memeSet['duck'],
+	canvas2: memeSet['milkTruck'],
+	canvas3: memeSet['jackieChan']
+};
+
 
 var checkboxCanvasMap = {
 	cb1:"canvas1",
@@ -64,7 +66,10 @@ function displayAll(){
 	$("#"+newId).children(".col-md-10")[0].innerHTML = content;
 	for(cid in curDispCanvasIds){
 		var canvas = document.getElementById(curDispCanvasIds[cid]);
-		var meme = new glTFEmojiRenderer.Meme(canvas, map[displayCanvasCanvasMap[curDispCanvasIds[cid]]]);
+		var cfg = map[displayCanvasCanvasMap[curDispCanvasIds[cid]]];
+		var text = $('#meme-text')[0].value;
+		text = text == "" ? cfg.text : text;
+		var meme = new glTFEmojiRenderer.Meme(canvas, cfg.url, text, cfg.params.sceneInfo, cfg.params.textInfo);
 		meme.createEmoji();
 	}
 	window.frames[0].document.body.innerHTML = "";
@@ -80,16 +85,26 @@ function myOnLoad() {
 					$("#myModal").modal() 
 					if(!canvasInit){
 						var canvas1 = document.getElementById("canvas1");
-						var meme = new glTFEmojiRenderer.Meme(canvas1, "/glTFs/CesiumMan.gltf");
+						var cfg1 = map.canvas1;
+						var meme = new glTFEmojiRenderer.Meme(canvas1, cfg1.url, cfg1.text, cfg1.params.sceneInfo, cfg1.params.textInfo);
 						meme.createEmoji();
 
 						var canvas2 = document.getElementById("canvas2");
-						var meme2 = new glTFEmojiRenderer.Meme(canvas2, "/glTFs/CesiumMilkTruck.gltf");
+						var cfg2 = map.canvas2;
+						var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params.sceneInfo, cfg2.params.textInfo);
 						meme2.createEmoji();
 
 						var canvas3 = document.getElementById("canvas3");
-						var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
+						var cfg3 = map.canvas3;
+						var meme3 = new glTFEmojiRenderer.Meme(canvas3, cfg3.url, cfg3.text, cfg3.params.sceneInfo, cfg3.params.textInfo);
 						meme3.createEmoji();
+
+						// Modify meme name
+						document.getElementById("name1").innerHTML = cfg1.name;
+						document.getElementById("name2").innerHTML = cfg2.name;
+						document.getElementById("name3").innerHTML = cfg3.name;
+
+
 
 						canvasInit = true;
 					}		 	

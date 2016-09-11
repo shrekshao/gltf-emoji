@@ -5,13 +5,13 @@
       "byteOffset": 0,
       "byteStride": 0,
       "componentType": 5123,
-      "count": 2232,
+      "count": 2400,
       "type": "SCALAR",
       "min": [
         0
       ],
       "max": [
-        2231
+        2399
       ]
     },
     "accessor_23": {
@@ -19,40 +19,56 @@
       "byteOffset": 0,
       "byteStride": 0,
       "componentType": 5126,
-      "count": 2216,
+      "count": 481,
       "max": [
         1.0710501670837402,
-        3.255732774734497,
+        3.3514530658721924,
         1.313219666481018
       ],
       "min": [
         -1.0710501670837402,
         0.7999511957168579,
-        -0.9989412426948547
+        -1.0067415237426758
       ],
       "type": "VEC3"
     },
     "accessor_25": {
       "bufferView": "bufferView_0",
-      "byteOffset": 26592,
+      "byteOffset": 5772,
       "byteStride": 0,
       "componentType": 5126,
-      "count": 2216,
+      "count": 481,
       "max": [
-        1.2757703065872192,
-        1.2834802865982056,
-        1.2887011766433716
+        1.2890070676803589,
+        1.2814092636108398,
+        1.2903786897659302
       ],
       "min": [
-        -1.2757703065872192,
-        -1.254530668258667,
-        -1.2517576217651367
+        -1.2890070676803589,
+        -1.289947748184204,
+        -1.2903786897659302
       ],
       "type": "VEC3"
     },
+    "accessor_27": {
+      "bufferView": "bufferView_0",
+      "byteOffset": 11544,
+      "byteStride": 0,
+      "componentType": 5126,
+      "count": 481,
+      "max": [
+        0.9999009966850281,
+        0.9999009966850281
+      ],
+      "min": [
+        0.00009902060264721513,
+        0.298317015171051
+      ],
+      "type": "VEC2"
+    },
     "accessor_48": {
       "bufferView": "bufferView_2",
-      "byteOffset": 4464,
+      "byteOffset": 4800,
       "byteStride": 0,
       "componentType": 5123,
       "count": 396,
@@ -66,10 +82,10 @@
     },
     "accessor_50": {
       "bufferView": "bufferView_0",
-      "byteOffset": 53184,
+      "byteOffset": 15392,
       "byteStride": 0,
       "componentType": 5126,
-      "count": 253,
+      "count": 162,
       "max": [
         0.9003390073776245,
         0.1235790029168129,
@@ -84,25 +100,41 @@
     },
     "accessor_52": {
       "bufferView": "bufferView_0",
-      "byteOffset": 56220,
+      "byteOffset": 17336,
       "byteStride": 0,
       "componentType": 5126,
-      "count": 253,
+      "count": 162,
       "max": [
-        0.9997499585151672,
-        1,
-        1
+        0.7978670001029968,
+        0.7071070075035095,
+        0.9997770190238953
       ],
       "min": [
-        -1,
-        -1,
-        -1
+        -0.742447018623352,
+        -0.7008450031280518,
+        -0.9997770190238953
       ],
       "type": "VEC3"
     },
-    "accessor_75": {
+    "accessor_54": {
+      "bufferView": "bufferView_0",
+      "byteOffset": 19280,
+      "byteStride": 0,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        0.7110030055046082,
+        0.32428401708602905
+      ],
+      "min": [
+        0.41790398955345154,
+        0.031185030937194824
+      ],
+      "type": "VEC2"
+    },
+    "accessor_80": {
       "bufferView": "bufferView_2",
-      "byteOffset": 5256,
+      "byteOffset": 5592,
       "byteStride": 0,
       "componentType": 5123,
       "count": 396,
@@ -114,12 +146,12 @@
         395
       ]
     },
-    "accessor_77": {
+    "accessor_82": {
       "bufferView": "bufferView_0",
-      "byteOffset": 59256,
+      "byteOffset": 20576,
       "byteStride": 0,
       "componentType": 5126,
-      "count": 245,
+      "count": 162,
       "max": [
         0.4959479868412018,
         0.10799100250005722,
@@ -132,23 +164,39 @@
       ],
       "type": "VEC3"
     },
-    "accessor_79": {
+    "accessor_84": {
       "bufferView": "bufferView_0",
-      "byteOffset": 62196,
+      "byteOffset": 22520,
       "byteStride": 0,
       "componentType": 5126,
-      "count": 245,
+      "count": 162,
       "max": [
-        1,
-        1,
-        1
+        0.742447018623352,
+        0.7071070075035095,
+        0.9997889995574951
       ],
       "min": [
-        -0.9997499585151672,
-        -1,
-        -1
+        -0.7978670001029968,
+        -0.7008450031280518,
+        -0.9997770190238953
       ],
       "type": "VEC3"
+    },
+    "accessor_86": {
+      "bufferView": "bufferView_0",
+      "byteOffset": 24464,
+      "byteStride": 0,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        0.34658101201057434,
+        0.3524399995803833
+      ],
+      "min": [
+        0.024512900039553642,
+        0.030372023582458496
+      ],
+      "type": "VEC2"
     },
     "animAccessor_0": {
       "bufferView": "bufferView_1",
@@ -489,26 +537,26 @@
   "bufferViews": {
     "bufferView_0": {
       "buffer": "buffer_0",
-      "byteLength": 65136,
+      "byteLength": 25760,
       "byteOffset": 0,
       "target": 34962
     },
     "bufferView_1": {
       "buffer": "buffer_0",
       "byteLength": 432,
-      "byteOffset": 65136
+      "byteOffset": 25760
     },
     "bufferView_2": {
       "buffer": "buffer_0",
-      "byteLength": 6048,
-      "byteOffset": 65568,
+      "byteLength": 6384,
+      "byteOffset": 26192,
       "target": 34963
     }
   },
   "buffers": {
     "buffer_0": {
       "type": "arraybuffer",
-      "byteLength": 71616,
+      "byteLength": 32576,
       "uri": "buffer_0.bin"
     }
   },
@@ -524,6 +572,12 @@
       "type": "perspective"
     }
   },
+  "images": {
+    "jackie_tex_png": {
+      "name": "jackie_tex_png",
+      "uri": "jackie_tex_png.png"
+    }
+  },
   "materials": {
     "jackie-effect": {
       "name": "jackie",
@@ -535,12 +589,33 @@
           0,
           1
         ],
-        "diffuse": [
-          0.800000011920929,
-          0.800000011920929,
-          0.800000011920929,
+        "diffuse": "texture_jackie_tex_png",
+        "emission": [
+          0,
+          0,
+          0,
           1
         ],
+        "shininess": 50,
+        "specular": [
+          0.5,
+          0.5,
+          0.5,
+          1
+        ]
+      }
+    },
+    "jackie-effect-variant-2": {
+      "name": "jackie",
+      "technique": "technique1",
+      "values": {
+        "ambient": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "diffuse": "texture_jackie_tex_png",
         "emission": [
           0,
           0,
@@ -564,7 +639,8 @@
         {
           "attributes": {
             "NORMAL": "accessor_25",
-            "POSITION": "accessor_23"
+            "POSITION": "accessor_23",
+            "TEXCOORD_0": "accessor_27"
           },
           "indices": "accessor_21",
           "material": "jackie-effect",
@@ -577,11 +653,12 @@
       "primitives": [
         {
           "attributes": {
-            "NORMAL": "accessor_79",
-            "POSITION": "accessor_77"
+            "NORMAL": "accessor_84",
+            "POSITION": "accessor_82",
+            "TEXCOORD_0": "accessor_86"
           },
-          "indices": "accessor_75",
-          "material": "jackie-effect",
+          "indices": "accessor_80",
+          "material": "jackie-effect-variant-2",
           "mode": 4
         }
       ]
@@ -592,7 +669,8 @@
         {
           "attributes": {
             "NORMAL": "accessor_52",
-            "POSITION": "accessor_50"
+            "POSITION": "accessor_50",
+            "TEXCOORD_0": "accessor_54"
           },
           "indices": "accessor_48",
           "material": "jackie-effect",
@@ -632,10 +710,10 @@
       ],
       "name": "LHand",
       "rotation": [
-        -0.30011481046676636,
-        0.6461888551712036,
-        -0.45548391342163086,
-        0.5337653160095215
+        0.21114127337932587,
+        -0.38139912486076355,
+        0.7603217363357544,
+        -0.4815235733985901
       ],
       "scale": [
         1,
@@ -643,9 +721,9 @@
         1
       ],
       "translation": [
-        3.7500197887420654,
-        0.2544749975204468,
-        4.620309829711914
+        2.539340019226074,
+        -1.3793699741363525,
+        0.7266790270805359
       ]
     },
     "Lamp": {
@@ -677,10 +755,10 @@
       ],
       "name": "RHand",
       "rotation": [
-        0.39459437131881714,
-        0.5789478421211243,
-        -0.5175527930259705,
-        -0.49117591977119446
+        0.005819670855998993,
+        -0.5694121718406677,
+        0.6538543105125427,
+        0.4982072710990906
       ],
       "scale": [
         1,
@@ -688,9 +766,9 @@
         1
       ],
       "translation": [
-        -3.676270008087158,
-        -0.031957101076841354,
-        4.653599739074707
+        -2.6386098861694336,
+        -1.1285399198532104,
+        0.8147099614143372
       ]
     },
     "node_5": {
@@ -752,10 +830,28 @@
     "program_0": {
       "attributes": [
         "a_normal",
-        "a_position"
+        "a_position",
+        "a_texcoord0"
       ],
-      "fragmentShader": "input0FS",
-      "vertexShader": "input0VS"
+      "fragmentShader": "wtf180FS",
+      "vertexShader": "wtf180VS"
+    },
+    "program_1": {
+      "attributes": [
+        "a_normal",
+        "a_position",
+        "a_texcoord0"
+      ],
+      "fragmentShader": "wtf181FS",
+      "vertexShader": "wtf181VS"
+    }
+  },
+  "samplers": {
+    "sampler_0": {
+      "magFilter": 9729,
+      "minFilter": 9729,
+      "wrapS": 10497,
+      "wrapT": 10497
     }
   },
   "scene": "defaultScene",
@@ -767,13 +863,21 @@
     }
   },
   "shaders": {
-    "input0FS": {
+    "wtf180FS": {
       "type": 35632,
-      "uri": "input0FS.glsl"
+      "uri": "wtf180FS.glsl"
     },
-    "input0VS": {
+    "wtf180VS": {
       "type": 35633,
-      "uri": "input0VS.glsl"
+      "uri": "wtf180VS.glsl"
+    },
+    "wtf181FS": {
+      "type": 35632,
+      "uri": "wtf181FS.glsl"
+    },
+    "wtf181VS": {
+      "type": 35633,
+      "uri": "wtf181VS.glsl"
     }
   },
   "skins": {},
@@ -781,14 +885,15 @@
     "technique0": {
       "attributes": {
         "a_normal": "normal",
-        "a_position": "position"
+        "a_position": "position",
+        "a_texcoord0": "texcoord0"
       },
       "parameters": {
         "ambient": {
           "type": 35666
         },
         "diffuse": {
-          "type": 35666
+          "type": 35678
         },
         "emission": {
           "type": 35666
@@ -843,14 +948,144 @@
         },
         "specular": {
           "type": 35666
+        },
+        "texcoord0": {
+          "semantic": "TEXCOORD_0",
+          "type": 35664
         }
       },
       "program": "program_0",
       "states": {
         "enable": [
           2929,
-          2884
+          3042
         ],
+        "functions": {
+          "blendEquationSeparate": [
+            32774,
+            32774
+          ],
+          "blendFuncSeparate": [
+            1,
+            771,
+            1,
+            771
+          ],
+          "depthMask": [
+            false
+          ]
+        },
+        "disable": []
+      },
+      "uniforms": {
+        "u_ambient": "ambient",
+        "u_diffuse": "diffuse",
+        "u_emission": "emission",
+        "u_light0Color": "light0Color",
+        "u_light0ConstantAttenuation": "light0ConstantAttenuation",
+        "u_light0LinearAttenuation": "light0LinearAttenuation",
+        "u_light0QuadraticAttenuation": "light0QuadraticAttenuation",
+        "u_light0Transform": "light0Transform",
+        "u_modelViewMatrix": "modelViewMatrix",
+        "u_normalMatrix": "normalMatrix",
+        "u_projectionMatrix": "projectionMatrix",
+        "u_shininess": "shininess",
+        "u_specular": "specular"
+      }
+    },
+    "technique1": {
+      "attributes": {
+        "a_normal": "normal",
+        "a_position": "position",
+        "a_texcoord0": "texcoord0"
+      },
+      "parameters": {
+        "ambient": {
+          "type": 35666
+        },
+        "diffuse": {
+          "type": 35678
+        },
+        "emission": {
+          "type": 35666
+        },
+        "light0Color": {
+          "type": 35665,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        "light0ConstantAttenuation": {
+          "type": 5126,
+          "value": 1
+        },
+        "light0LinearAttenuation": {
+          "type": 5126,
+          "value": 0
+        },
+        "light0QuadraticAttenuation": {
+          "type": 5126,
+          "value": 0.001111089950427413
+        },
+        "light0Transform": {
+          "node": "Lamp",
+          "semantic": "MODELVIEW",
+          "type": 35676
+        },
+        "modelViewMatrix": {
+          "semantic": "MODELVIEW",
+          "type": 35676
+        },
+        "normal": {
+          "semantic": "NORMAL",
+          "type": 35665
+        },
+        "normalMatrix": {
+          "semantic": "MODELVIEWINVERSETRANSPOSE",
+          "type": 35675
+        },
+        "position": {
+          "semantic": "POSITION",
+          "type": 35665
+        },
+        "projectionMatrix": {
+          "semantic": "PROJECTION",
+          "type": 35676
+        },
+        "shininess": {
+          "type": 5126
+        },
+        "specular": {
+          "type": 35666
+        },
+        "texcoord0": {
+          "semantic": "TEXCOORD_0",
+          "type": 35664
+        }
+      },
+      "program": "program_1",
+      "states": {
+        "enable": [
+          2929,
+          3042
+        ],
+        "functions": {
+          "blendEquationSeparate": [
+            32774,
+            32774
+          ],
+          "blendFuncSeparate": [
+            1,
+            771,
+            1,
+            771
+          ],
+          "depthMask": [
+            false
+          ]
+        },
         "disable": []
       },
       "uniforms": {
@@ -870,8 +1105,15 @@
       }
     }
   },
-  "extensionsUsed": [],
-  "images": {},
-  "samplers": {},
-  "textures": {}
+  "textures": {
+    "texture_jackie_tex_png": {
+      "format": 6408,
+      "internalFormat": 6408,
+      "sampler": "sampler_0",
+      "source": "jackie_tex_png",
+      "target": 3553,
+      "type": 5121
+    }
+  },
+  "extensionsUsed": []
 }

@@ -101,9 +101,9 @@
     <canvas id="canvas" width="200px" height="200px"></canvas>
     <canvas id="canvas2" width="200px" height="200px"></canvas>
     </div>
-    
+
     <div>
-    
+
     </div>
 
     <div id="msgbox"></div>
@@ -130,7 +130,7 @@
                 params: {
                     sceneInfo: {
                         clearColor: 0xffffff,
-                        cameraPos: new THREE.Vector3(0, 3, 10),
+                        cameraPos: new THREE.Vector3(0, 5, 12),
                         objectScale: new THREE.Vector3(3, 3, 3),
                         objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
 
@@ -138,14 +138,14 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "spin"
                     }
                 }
-                
+
             }
             ,
             jackieChan: {
@@ -162,14 +162,14 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "shake"
                     }
                 }
-                
+
             }
             ,
             milkTruck: {
@@ -186,34 +186,58 @@
                     }
                     ,
                     textInfo: {
-                        position: new THREE.Vector3(0, 0, 1), 
-                        scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
                         color: 0xaaaaaa,
 
                         animation: "shake"
                     }
                 }
-                
+
+            }
+            ,
+            duck: {
+                url: "/glTFs/duck/glTF-MaterialsCommon/duck.gltf",
+                text: "Duck",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 15),
+                        //objectScale: new THREE.Vector3(3, 3, 3),
+                        //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
+                        color: 0xaaaaaa,
+
+                        animation: "spin"
+                    }
+                }
+
             }
         };
 
         function createMeme(canvas, cfg) {
-            return new glTFEmojiRenderer.Meme(canvas, cfg.url, cfg.text, cfg.params); 
+            return new glTFEmojiRenderer.Meme(canvas, cfg.url, cfg.text, cfg.params);
         }
 
-        
+
         var canvas = document.getElementById("canvas");
         var canvas2 = document.getElementById("canvas2");
         //glTFEmojiRenderer.createEmoji(canvas, "/glTFs/monster/%s/monster.gltf");
-        
+
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan.gltf");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMan-Contour/%s/Cesium_Man.gltf");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/cube.gltf", "HaHaHa Joint working!");
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/cube2.gltf");
-        
+
         //var meme = new glTFEmojiRenderer.Meme(canvas, "/glTFs/Cube2ColladaTest/%s/cube2.gltf");
-        
+
 
         //var meme = createMeme(canvas, memeSet['cesiumManContour']);
 
@@ -227,12 +251,26 @@
         // meme2.createEmoji(canvas2, cfg2.url, cfg2.text, cfg2.params);
 
         //var cfg1 = memeSet['jackieChan'];
-        var cfg1 = memeSet['milkTruck'];
-        var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params);
+        //var cfg1 = memeSet['milkTruck'];
+        var cfg1 = memeSet['duck'];
+        //var cfg1 = memeSet['cesiumManContour'];
+        var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params.sceneInfo, cfg1.params.textInfo);
+        meme1.createEmoji();
 
-        var cfg2 = memeSet['cesiumManContour'];
-        var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params);
-        
+        //var cfg2 = memeSet['cesiumManContour'];
+        var cfg2 = memeSet['jackieChan'];
+        //var cfg2 = memeSet['duck'];
+        var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params.sceneInfo, cfg2.params.textInfo);
+        meme2.createEmoji();
+
+
+        function animate() {
+            meme1.animate();
+            meme2.animate();
+
+            requestAnimationFrame( animate );
+        }
+
     </script>
 
 </body>

@@ -1,4 +1,4 @@
-![](img/jackieChan.gif)
+![](img/JackieChan.gif)
 
 glTF Emoji renderer plugin
 =====

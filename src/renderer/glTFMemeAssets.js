@@ -32,7 +32,8 @@ var memeSet = {
         params: {
             sceneInfo: {
                 clearColor: 0xffffff,
-                cameraPos: new THREE.Vector3(0, 3, 15),
+                cameraPos: new THREE.Vector3(-1, 4, 6),
+
                 //objectScale: new THREE.Vector3(3, 3, 3),
                 //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
 
@@ -58,7 +59,8 @@ var memeSet = {
         params: {
             sceneInfo: {
                 clearColor: 0xffffff,
-                cameraPos: new THREE.Vector3(0, 3, 15),
+                cameraPos: new THREE.Vector3(-0.5, 1, 6),
+                objectPosition: new THREE.Vector3(0, -2, 0),
                 //objectScale: new THREE.Vector3(3, 3, 3),
                 //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
 
@@ -66,7 +68,7 @@ var memeSet = {
             }
             ,
             textInfo: {
-                position: new THREE.Vector3(0, 0, 1),
+                position: new THREE.Vector3(0, -2, 1),
                 scale: new THREE.Vector3(0.01, 0.01, 0.01),
                 color: 0xaaaaaa,
 
@@ -83,17 +85,18 @@ var memeSet = {
         params: {
             sceneInfo: {
                 clearColor: 0xffffff,
-                cameraPos: new THREE.Vector3(0, 3, 15),
+                cameraPos: new THREE.Vector3(1, 1.5, 7.5),
+                objectPosition: new THREE.Vector3(0, -1, -1),
                 //objectScale: new THREE.Vector3(3, 3, 3),
-                //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+                //objectRotation: new THREE.Euler(0, - 1 * Math.PI / 20, 0),
 
                 addLights: true
             }
             ,
             textInfo: {
-                position: new THREE.Vector3(0, 0, 1),
+                position: new THREE.Vector3(0, -1, 1),
                 scale: new THREE.Vector3(0.01, 0.01, 0.01),
-                color: 0xaaaaaa,
+                color: 0x87C339,
 
                 animation: "spin"
             }
@@ -108,17 +111,18 @@ var memeSet = {
         params: {
             sceneInfo: {
                 clearColor: 0xffffff,
-                cameraPos: new THREE.Vector3(0, 3, 15),
+                objectPosition: new THREE.Vector3(0, -1, 0),
+                cameraPos: new THREE.Vector3(0, 1, 5),
                 //objectScale: new THREE.Vector3(3, 3, 3),
-                //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+                objectRotation: new THREE.Euler(0, - 4 * Math.PI / 5, 0),
 
                 addLights: true
             }
             ,
             textInfo: {
-                position: new THREE.Vector3(0, 0, 1),
+                position: new THREE.Vector3(0, -1, 1),
                 scale: new THREE.Vector3(0.01, 0.01, 0.01),
-                color: 0xaaaaaa,
+                color: 0x886611,
 
                 animation: "spin"
             }

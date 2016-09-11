@@ -50,7 +50,7 @@ function displayAll(){
 		var subStr = '[' + canvasIds[cid] + ']';
 		if(content.includes(subStr)){
 			content = content.replace(subStr, "");
-			content += '<canvas id="' + displayCanvasId + '" class="canvases" width="180px"></canvas>';
+			content += '<canvas id="' + displayCanvasId + '" class="canvases" width="360px" height="240px"></canvas>';
 			curDispCanvasIds.push(displayCanvasId);
 		}		
 	}
@@ -58,14 +58,18 @@ function displayAll(){
 	var newDiv = document.getElementById("divForClone").cloneNode(true);
 	var newId = "displayDiv"+displayDivIdsNum++;
 	newDiv.id = newId;
-	newDiv.style="height:230px;";
+	//newDiv.style="height:230px;";
+	newDiv.style="";
 	// newDiv.innerHTML = content;
 	// newDiv.className = "well";
 
 	document.getElementById("display").appendChild(newDiv);
 	$("#"+newId).children(".col-md-10")[0].innerHTML = content;
+	//$("#"+newId).children(".imgbox-no-float")[0].innerHTML = content;
+
 	for(cid in curDispCanvasIds){
 		var canvas = document.getElementById(curDispCanvasIds[cid]);
+		canvas.width
 		var cfg = map[displayCanvasCanvasMap[curDispCanvasIds[cid]]];
 		var text = $('#meme-text')[0].value;
 		text = text == "" ? cfg.text : text;

@@ -2,7 +2,9 @@ glTF Emoji renderer plugin
 =====
 
 glTF 3D Emoji Renderer plugin can render 3D interactive glTF Emoji in the browser canvas, 
-which can add a lot of fun to your forum, blog, etc.
+which can add a lot of fun to your forum, blog, etc. Simply import the `build/glTFMeme.min.js` to use the renderer. 
+
+[**A Live Forum Demo using glTF Emoji Renderer!**](https://shrekshao.github.io/gltf-emoji/src/renderer/a)
 
 A PennApps Fall 2016 project!
 

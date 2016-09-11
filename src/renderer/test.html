@@ -172,6 +172,32 @@
 
             }
             ,
+            jackieChan2: {
+                name: "Jackie Chan Crazy",
+                url: "/glTFs/JackieChan2/JackieChan2.gltf",
+                //text: "DA FUQ?",
+                text: "Duang!!",
+                params: {
+                    sceneInfo: {
+                        clearColor: 0xffffff,
+                        cameraPos: new THREE.Vector3(0, 3, 15),
+                        //objectScale: new THREE.Vector3(3, 3, 3),
+                        //objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+
+                        addLights: true
+                    }
+                    ,
+                    textInfo: {
+                        position: new THREE.Vector3(0, 0, 1),
+                        scale: new THREE.Vector3(0.01, 0.01, 0.01),
+                        color: 0xaaaaaa,
+
+                        animation: "shake"
+                    }
+                }
+
+            }
+            ,
             milkTruck: {
                 url: "/glTFs/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
                 text: "Milk Truck?",
@@ -252,14 +278,16 @@
 
         //var cfg1 = memeSet['jackieChan'];
         //var cfg1 = memeSet['milkTruck'];
+        //var cfg1 = memeSet['jackieChan2'];
         var cfg1 = memeSet['duck'];
         //var cfg1 = memeSet['cesiumManContour'];
         var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params.sceneInfo, cfg1.params.textInfo);
         meme1.createEmoji();
 
-        //var cfg2 = memeSet['cesiumManContour'];
-        var cfg2 = memeSet['jackieChan'];
+        // // //var cfg2 = memeSet['cesiumManContour'];
+        // var cfg2 = memeSet['jackieChan'];
         //var cfg2 = memeSet['duck'];
+        var cfg2 = memeSet['jackieChan2'];
         var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params.sceneInfo, cfg2.params.textInfo);
         meme2.createEmoji();
 

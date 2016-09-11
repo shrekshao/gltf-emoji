@@ -4,23 +4,14 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
 
     var R = glTFEmojiRenderer;
 
-    /**
-     * 
-     */
-    R.Meme = function (c, glTFURL, t, params) {
-        var p = params || {};
-
+    R.Meme = function (_canvas, _url, _text, _sceneInfo, _textInfo) {        
         // setup canvas
-        var canvas = c;
+        var canvas = _canvas;
         var width = canvas.width;
         var height = canvas.height;
 
         // gltf url
-        var url = glTFURL;
-
-        // 3D text
-        var text = t || "DA FUQ?";
-        var text3D;
+        var url = _url;
         
         // renderer related
         var orbitControls = null;
@@ -37,6 +28,35 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         var gltf = null;
 
 
+        // info
+        var sceneInfo = _sceneInfo || {
+            //name : "Monster", 
+            //url : url,
+            //cameraPos: new THREE.Vector3(30, 10, 70),
+            clearColor: 0xffffff,
+            cameraPos: new THREE.Vector3(0, 3, 10),
+            //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
+            //objectScale: new THREE.Vector3(100, 100, 100),
+            //objectPosition: new THREE.Vector3(2, 6, 0),
+            objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
+            //animationTime: 3,
+            addLights:true,
+            shadows:true
+            //,addGround:true
+        };
+        var textInfo = _textInfo || {
+            //text: text || "DA FUQ?",
+            position: new THREE.Vector3(0, 0, 1), 
+            scale: new THREE.Vector3(0.01, 0.01, 0.01), 
+            color: 0xcccccc
+        };
+        var text = _text || "DA FUQ?";
+
+        var text3D;
+        var animateText3DHandler = null;
+
+
+
         var useMaterialsExtension = false;
         //var glTFLoader = new THREE.glTFLoader;
 
@@ -50,11 +70,21 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         //     animate();
         // }
 
-        function initScene(sceneInfo, textInfo) {
+        function initScene(sceneInfo) {
+
+            //container = document.getElementById( 'container' );
 
             scene = new THREE.Scene();
 
             defaultCamera = new THREE.PerspectiveCamera( 45, width / height, 1, 20000 );
+
+
+            // // test
+            // var bodyGeom = new THREE.BoxGeometry(15,15,15);
+            // var bodyMat = new THREE.MeshPhongMaterial({color:0xf25346, shading:THREE.FlatShading});
+            // var body = new THREE.Mesh(bodyGeom, bodyMat);
+            // scene.add(body);
+
 
             //defaultCamera.up = new THREE.Vector3( 0, 1, 0 );
             scene.add( defaultCamera );
@@ -99,10 +129,14 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );
 
+            orbitControls = new THREE.OrbitControls(defaultCamera, renderer.domElement);
+
             if (sceneInfo.shadows) {
                 renderer.shadowMap.enabled = true;
                 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             }
+
+            //container.appendChild( renderer.domElement );
 
             var ground = null;
 
@@ -232,33 +266,31 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 
                 // test text3D
                 
-                if ( text ) {
-                    text3D = R.createText3D(text, textInfo);
-                    
-                    if (textInfo.position) {
-                        //text3D.position.set(0, 0, 50);
-                        text3D.position.copy(textInfo.position);
-                    }
-
-                    if (textInfo.scale) {
-                        text3D.scale.copy(textInfo.scale)
-                    }
-
-                    if (textInfo.animation) {
-                        switch(textInfo.animation) {
-                            case "spin": animateText3DHandler = animateText3DSpin; break;
-                            case "shake": animateText3DHandler = animateText3DShake; break;
-                        }
-                    }
-                    
-                    scene.add(text3D);
+                text3D = R.createText3D(text);
+                text3D.position.set(0, 0, 0);
+                //text3D.scale.set(10, 10, 10);
+                if (textInfo.position) {
+                    //text3D.position.set(0, 0, 50);
+                    text3D.position.copy(textInfo.position);
                 }
-                
+
+                if (textInfo.scale) {
+                    text3D.scale.copy(textInfo.scale)
+                }
+
+                if (textInfo.animation) {
+                    switch(textInfo.animation) {
+                        case "spin": animateText3DHandler = animateText3DSpin; break;
+                        case "shake": animateText3DHandler = animateText3DShake; break;
+                    }
+                }
+                scene.add(text3D);
+
                 animate();
 
             });
 
-            orbitControls = new THREE.OrbitControls(defaultCamera, renderer.domElement);
+            
 
         }
 
@@ -287,22 +319,20 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             if (cameraIndex == 0) {
                 orbitControls.update();
             }
-
-            if (animateText3DHandler) {
+            if (text3D && animateText3DHandler) {
                 animateText3DHandler();
             }
-
             render();
         }
 
         var frame = 0;
-        var animateText3DHandler = null;
         function animateText3DSpin() {
             //text3D.rotation.y += 0.005;
             frame += 1;
             text3D.rotation.y = 0.2 * Math.sin(0.05 * frame);
             text3D.rotation.x = 0.4 * Math.sin(0.03 * frame);
         }
+
         function animateText3DShake() {
             //text3D.rotation.y += 0.005;
             frame += 1;
@@ -315,43 +345,16 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         }
 
 
-        console.log("glTF meme start render");
+
+        this.createEmoji = function() {
+            console.log("glTF emoji entry");
 
 
 
+            initScene(sceneInfo, textInfo);
+            //animate();
 
-        var sceneInfo = p.sceneInfo || {
-            //name : "Monster", 
-            //url : url,
-            //cameraPos: new THREE.Vector3(30, 10, 70),
-            clearColor: 0xffffff,
-            cameraPos: new THREE.Vector3(0, 3, 10),
-            //objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
-            //objectScale: new THREE.Vector3(100, 100, 100),
-            //objectPosition: new THREE.Vector3(2, 6, 0),
-            objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
-            //animationTime: 3,
-            addLights:true,
-            shadows:true
-            //,addGround:true
         };
-
-        var textInfo = p.textInfo || {
-            //text: text || "DA FUQ?",
-            position: new THREE.Vector3(0, 0, 1), 
-            scale: new THREE.Vector3(0.01, 0.01, 0.01), 
-            //color: 0xffffff
-            color: 0xcccccc
-            //color: 0xff6666
-        };
-
-
-        initScene(sceneInfo, textInfo);
-        //animate();
-
-
-
-
     };
 
 
@@ -404,6 +407,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
      */
     R.createText3D = function (text, params) {
 
+        params = params || {};
         var color = params.color !== undefined ? params.color : 0xffffff;
 
 
@@ -490,21 +494,6 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         var group = new THREE.Group();
 
         group.add( textMesh1 );
-
-        // if ( mirror ) {
-
-        //     textMesh2 = new THREE.Mesh( textGeo, material );
-
-        //     textMesh2.position.x = centerOffset;
-        //     textMesh2.position.y = -hover;
-        //     textMesh2.position.z = height;
-
-        //     textMesh2.rotation.x = Math.PI;
-        //     textMesh2.rotation.y = Math.PI * 2;
-
-        //     group.add( textMesh2 );
-
-        // }
 
         return group;
     };

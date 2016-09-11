@@ -130,7 +130,7 @@
                 params: {
                     sceneInfo: {
                         clearColor: 0xffffff,
-                        cameraPos: new THREE.Vector3(0, 3, 10),
+                        cameraPos: new THREE.Vector3(0, 5, 12),
                         objectScale: new THREE.Vector3(3, 3, 3),
                         objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
 
@@ -251,15 +251,17 @@
         // meme2.createEmoji(canvas2, cfg2.url, cfg2.text, cfg2.params);
 
         //var cfg1 = memeSet['jackieChan'];
-        var cfg1 = memeSet['milkTruck'];
-        var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params);
-        //meme1.initScene(cfg1.params.sceneInfo, cfg1.params.textInfo);
+        //var cfg1 = memeSet['milkTruck'];
+        var cfg1 = memeSet['duck'];
+        var meme1 = new glTFEmojiRenderer.Meme(canvas, cfg1.url, cfg1.text, cfg1.params.sceneInfo, cfg1.params.textInfo);
+        meme1.createEmoji();
 
-        //var cfg2 = memeSet['cesiumManContour'];
-        var cfg2 = memeSet['jackieChan'];
+        var cfg2 = memeSet['cesiumManContour'];
+        //var cfg2 = memeSet['jackieChan'];
         //var cfg2 = memeSet['duck'];
-        var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params);
-        //meme2.initScene(cfg2.params.sceneInfo, cfg2.params.textInfo);
+        var meme2 = new glTFEmojiRenderer.Meme(canvas2, cfg2.url, cfg2.text, cfg2.params.sceneInfo, cfg2.params.textInfo);
+        meme2.createEmoji();
+
 
         function animate() {
             meme1.animate();

@@ -46,6 +46,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
      */
     R.createText3D = function (text, params) {
 
+        params = params || {};
         var color = params.color !== undefined ? params.color : 0xffffff;
 
 
@@ -132,21 +133,6 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
         var group = new THREE.Group();
 
         group.add( textMesh1 );
-
-        // if ( mirror ) {
-
-        //     textMesh2 = new THREE.Mesh( textGeo, material );
-
-        //     textMesh2.position.x = centerOffset;
-        //     textMesh2.position.y = -hover;
-        //     textMesh2.position.z = height;
-
-        //     textMesh2.rotation.x = Math.PI;
-        //     textMesh2.rotation.y = Math.PI * 2;
-
-        //     group.add( textMesh2 );
-
-        // }
 
         return group;
     };

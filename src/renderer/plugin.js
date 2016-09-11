@@ -117,7 +117,7 @@ function myOnLoad() {
 			editor.ui.addButton( 'btnInsert',{
 				label: 'Insert a Link',
 				command: 'popUpDialog',
-				icon: this.path + 'images/icon.png'
+				icon: 'gltf_ds4_icon.ico'
 			});
 		}
 	} );
@@ -126,8 +126,17 @@ function myOnLoad() {
 		extraPlugins : 'emoji',
 		toolbar :
 		[
-			['Source', '-', 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Smiley'],
-			['About','-','btnInsert']
+			{ name: 'document', items : [ 'NewPage','Preview' ] },
+			{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+			{ name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','Scayt' ] },
+			{ name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','btnInsert','SpecialChar','PageBreak'
+	                 ,'Iframe' ] },
+	                '/',
+			{ name: 'styles', items : [ 'Styles','Format' ] },
+			{ name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
+			{ name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote' ] },
+			{ name: 'links', items : [ 'Link','Unlink','Anchor' ] },
+			{ name: 'tools', items : [ 'Maximize','-','About' ] }
 		]
 	});
 

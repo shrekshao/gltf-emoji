@@ -8,8 +8,7 @@ which can add a lot of fun to your forum, blog, etc. Simply import the `build/gl
 
 A PennApps Fall 2016 project!
 
-![](img/forum.gif)
-![](img/select-emoji.gif)
+![](img/demo.gif)
 
 
 ![gltf-logo](https://github.com/KhronosGroup/glTF/raw/master/specification/figures/gltf.png)

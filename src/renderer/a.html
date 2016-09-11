@@ -33,6 +33,9 @@
 
 
 	<style>
+		#avatar{
+			border-top: 0px;
+		}
 		.post-list-header{
 			padding: 15px 30px;
 			border-bottom: 1px solid #c0c0c0;
@@ -72,8 +75,8 @@
 				max-width: 30%;
 				margin: 0 auto;
 				
-				margin-top: 2%;
-				margin-bottom: 2%;
+				margin-top: 0%;
+				margin-bottom: 0%;
 				
 				float: left;
 				overflow: auto;
@@ -115,6 +118,12 @@
 				float: left;
 				margin: 0 auto;
 		}
+
+
+		.navBar{
+			background-color: black;
+			height: 20px;
+		}
   </style>
 
 
@@ -122,10 +131,18 @@
 </head>
 <body onload="myOnLoad()">
 	<div class="container">
+		<div class="logo">
+			<font color="green"><h1><img style="height:100px" src="gltf.png" style='vertical-align: middle'/>3D Emoji</h1></font>
+		</div>
+	</div>
+	<div class="navBar">
+
+	</div>
+	<div class="container">
 
 		<div id="display" style="width:auto;height:auto"></div>
 
-		<div id="editor1" name="editor1">666666
+		<div id="editor1" name="editor1">
 		</div>
 
 		<button type="button" class="btn btn-primary btn-block" style="width:180px;" onclick="displayAll()">Submit</button>
@@ -195,7 +212,21 @@
 		<div  class="post-list-item" id="divForClone" style="display:none" >
 			<!--<div class="col-md-2" height="230px"><img height="190px" src="1.jpg"></div>-->
 
-			<div class="imgbox"><img height="190px" src="1.jpg"></div>
+			<div class="imgbox"><img id="avatar" height="190px" src="1.jpg">
+				<p> <img src="user.png" height="20px" width="20px" style='vertical-align: middle' />&nbsp;ShrekShao<br/>
+					<img src="crown.jpg" height="20px" width="20px" style='vertical-align: middle' />&nbsp;<font color="blue">Administrator</font><br/>
+					<img src="sun.jpg" height="20px" style='vertical-align: middle' />
+					<img src="moon.jpg" height="20px" style='vertical-align: middle' />
+					<img src="moon.jpg" height="20px" style='vertical-align: middle' />
+					<img src="star.png" height="20px" style='vertical-align: middle' />
+					<img src="star.png" height="20px" style='vertical-align: middle' />
+					<img src="star.png" height="20px" style='vertical-align: middle' />
+				</p>
+			</div>
+			<!-- <div class="imgbox">
+				<img src="male_user_icon.png" height="20px">
+				<p>Senior Dick<br/><font color="blue">Administrator</font></p>
+			</div> -->
 			<div class="col-md-10"></div>
 			<!--<div class="imgbox-no-float" id="canvas-place"></div>-->
 		</div>

@@ -281,7 +281,10 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 if (textInfo.animation) {
                     switch(textInfo.animation) {
                         case "spin": animateText3DHandler = animateText3DSpin; break;
-                        case "shake": animateText3DHandler = animateText3DShake; break;
+                        case "shake": 
+                            originPosition = text3D.position;
+                            animateText3DHandler = animateText3DShake; 
+                            break;
                     }
                 }
                 scene.add(text3D);
@@ -330,14 +333,15 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
             //text3D.rotation.y += 0.005;
             frame += 1;
             text3D.rotation.y = 0.2 * Math.sin(0.05 * frame);
-            text3D.rotation.x = 0.4 * Math.sin(0.03 * frame);
+            text3D.rotation.x = 0.005 * Math.sin(0.03 * frame);
         }
 
+        var originPosition;
         function animateText3DShake() {
             //text3D.rotation.y += 0.005;
             frame += 1;
-            text3D.position.y = 0.2 * Math.sin(0.5 * frame);
-            text3D.rotation.x = 0.1 * Math.sin(0.03 * frame);
+            text3D.position.y = originPosition.y + 0.1 * Math.sin(0.5 * frame);
+            //text3D.position.x = originPosition.x + 0.1 * Math.sin(0.03 * frame);
         }
 
         function render() {

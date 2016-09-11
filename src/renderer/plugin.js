@@ -30,7 +30,7 @@ var displayCanvasCanvasMap = {};
 var map = {
 	canvas1: memeSet['duck'],
 	canvas2: memeSet['milkTruck'],
-	canvas3: memeSet['jackieChan']
+	canvas3: memeSet['jackieChan2']
 };
 
 

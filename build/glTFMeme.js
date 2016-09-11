@@ -266,7 +266,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 
                 // test text3D
                 
-                text3D = R.createText3D(text);
+                text3D = R.createText3D(text, textInfo);
                 text3D.position.set(0, 0, 0);
                 //text3D.scale.set(10, 10, 10);
                 if (textInfo.position) {
@@ -275,7 +275,7 @@ var glTFEmojiRenderer = glTFEmojiRenderer || {};
                 }
 
                 if (textInfo.scale) {
-                    text3D.scale.copy(textInfo.scale)
+                    text3D.scale.copy(textInfo.scale);
                 }
 
                 if (textInfo.animation) {

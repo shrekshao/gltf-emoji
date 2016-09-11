@@ -104,13 +104,16 @@ function displayAll(){
 			curDispCanvasIds.push(displayCanvasId);
 		}		
 	}
-	var newDiv = document.createElement("div");
+	// var newDiv = document.createElement("div");
+	var newDiv = document.getElementById("divForClone").cloneNode(true);
 	var newId = "displayDiv"+displayDivIdsNum++;
 	newDiv.id = newId;
-	newDiv.innerHTML = content;
-	newDiv.className = "well";
+	newDiv.style="height:230px;";
+	// newDiv.innerHTML = content;
+	// newDiv.className = "well";
 
 	document.getElementById("display").appendChild(newDiv);
+	$("#"+newId).children(".col-md-10")[0].innerHTML = content;
 	for(cid in curDispCanvasIds){
 		var canvas = document.getElementById(curDispCanvasIds[cid]);
 		var meme = new glTFEmojiRenderer.Meme(canvas, map[displayCanvasCanvasMap[curDispCanvasIds[cid]]]);

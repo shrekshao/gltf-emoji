@@ -109,7 +109,7 @@ function displayAll(){
 }	
 
 function displayAllFirst(){
-	var content = "<p>Welcome to GLTF 3D Emoji World, my friend!<br>You can drag the picture to zoom in/out and use slider to rotate it.<br>Have fun!</p>";
+	var content = "<p>Welcome to glTF 3D Emoji World, my friend!<br>You can drag the picture to rotate and use slider to zoom in/out. <br>This is a (static) forum for demo use. <br>Have fun!</p>";
 	content = '<font color="blue">ShrekShao updates at ' + getDateTime() + 
 	':</font><br/>' +
 	'------------------------------------------------------------------------------'+ 

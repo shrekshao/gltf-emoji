@@ -39,9 +39,37 @@ var checkboxCanvasMap = {
 	cb2:"canvas2",
 	cb3:"canvas3"
 };
+function getDateTime() {
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + sec;
+
+}
 
 function displayAll(){
 	var content = CKEDITOR.instances.editor1.getData();
+	content = '<font color="blue">ShrekShao updates at ' + getDateTime() + 
+	':</font><br/>' +
+	'------------------------------------------------------------------------------'+ 
+	'<br/>' +  content
 	var curDispCanvasIds = [];
 	for(cid in canvasIds){
 		var displayCanvasId = "displayCanvas"+displayCanvasIdsNum++;
@@ -77,6 +105,42 @@ function displayAll(){
 		meme.createEmoji();
 	}
 	window.frames[0].document.body.innerHTML = "";
+	canvasIds = [];
+}	
+
+function displayAllFirst(){
+	var content = "<p>Welcome to GLTF 3D Emoji World, my friend!<br>You can drag the picture to zoom in/out and use slider to rotate it.<br>Have fun!</p>";
+	content = '<font color="blue">ShrekShao updates at ' + getDateTime() + 
+	':</font><br/>' +
+	'------------------------------------------------------------------------------'+ 
+	'<br/>' +  content
+	var curDispCanvasIds = [];
+	for(cid in canvasIds){
+		var displayCanvasId = "displayCanvas"+displayCanvasIdsNum++;
+		displayCanvasCanvasMap[displayCanvasId] = canvasIds[cid];
+		//remove dummy
+		content += '<canvas id="' + displayCanvasId + '" class="canvases" width="360px" height="240px"></canvas>';
+		curDispCanvasIds.push(displayCanvasId);
+	}
+	// var newDiv = document.createElement("div");
+	var newDiv = document.getElementById("divForClone").cloneNode(true);
+	var newId = "displayDiv"+displayDivIdsNum++;
+	newDiv.id = newId;
+
+	newDiv.style="";
+
+	document.getElementById("display").appendChild(newDiv);
+	$("#"+newId).children(".col-md-10")[0].innerHTML = content;
+
+	for(cid in curDispCanvasIds){
+		var canvas = document.getElementById(curDispCanvasIds[cid]);
+		canvas.width
+		var cfg = map[displayCanvasCanvasMap[curDispCanvasIds[cid]]];
+		var text = $('#meme-text')[0].value;
+		text = text == "" ? cfg.text : text;
+		var meme = new glTFEmojiRenderer.Meme(canvas, cfg.url, "Duck", cfg.params.sceneInfo, cfg.params.textInfo);
+		meme.createEmoji();
+	}
 	canvasIds = [];
 }	
 
@@ -142,4 +206,7 @@ function myOnLoad() {
 	// var canvas3 = document.getElementById("canvas3");
 	// var meme3 = new glTFEmojiRenderer.Meme(canvas3, "/glTFs/duck/glTF-MaterialsCommon/duck.gltf");
 	// meme3.createEmoji();
+
+	canvasIds = ['canvas1'];
+	displayAllFirst();
 }
